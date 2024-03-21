@@ -17,6 +17,10 @@
   gap: 30px;
 }
 
+.recipe-info{
+  padding: 0px;
+}
+
 [class$="-dropdown"]{
   flex:initial;
   position: relative;

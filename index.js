@@ -1,3 +1,5 @@
+var recipeJsonObject;
+
 const getHeader = function(){
     return document.getElementById("header");
 }
@@ -6,14 +8,28 @@ const getGrid = function(){
     return document.getElementById("grid");
 }
 
-const recipeJsonObject = '{}';
-
-const json = function(){
+const getJson = function(){
     fetch('recipe.json')
     .then(response => response.json())
-    .then(jsonResponse => console.log(jsonResponse));
-    recipeJsonObject = JSON.parse(jsonResponse);
-    console.log(recipeJsonObject);
+    .then(data => doJson(data));
+}
+
+function doJson(obj){
+
+    for(let i = 0; i < obj.length ; i++){
+        getGrid().innerHTML += 
+        `<button onclick="viewRecipe('recipe')" class="recipe-item-button" type="button">
+              <div class="recipe-item">
+                `+obj[i].name+`
+                <br><br>
+                <span>`+obj[i].description+`</span>
+                <li>
+                    <ul class="recipe-info">`+obj[i].ingredients[0].name+`, `+obj[i].ingredients[0].amount+`, $`+obj[i].ingredients[0].cost+`</ul>
+                </li>              
+              </div>
+        </button>`
+    }
+
 }
 
 const recipes = new Array(12);
@@ -31,18 +47,12 @@ function selectDropdownItem(item){
 }
 
 function createRecipes(){
-    for(let i = 0; i < recipes.length ; i++){
-        getGrid().innerHTML += 
-        `<button onclick="viewRecipe('recipe')" class="recipe-item-button" type="button">
-              <div class="recipe-item">
-  
-                Recipe` +i+ `
-                
-              </div>
-        </button>`
-    }
+
+    getJson();
+
     
-    json();
+
+    
 }
 
 /*function viewRecipe(recipe){
