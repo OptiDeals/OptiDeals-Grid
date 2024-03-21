@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>OptiDeals</title>
+          <script src="grid.js"></script> 
+          <link href="./grid.css" rel="stylesheet"/>
+  </head>
+  <body onload="createRecipes()">
+
+
+        <div class="recipe-container">
+          <div class="recipe-header" id="header">
+
+            <div class="store-dropdown">
+              <button onclick="dropdownItem('storeDropdown')" class="store-dropbtn">Store ▼</button>
+                <div id="storeDropdown" class="store-dropdown-content">
+                  <a href="#" id="storeItem1" onclick="selectDropdownItem('storeItem1')" >Store 1</a>
+                  <a href="#" id="storeItem2" onclick="selectDropdownItem('storeItem2')" >Store 2</a>
+                  <a href="#" id="storeItem3" onclick="selectDropdownItem('storeItem3')" >Store 3</a>
+                </div>
+            </div>
+
+            <div class="price-dropdown">
+              <button onclick="dropdownItem('priceDropdown')" class="price-dropbtn">Price ▼</button>
+                <div id="priceDropdown" class="price-dropdown-content">
+                  <a href="#" id="priceItem1" onclick="selectDropdownItem('priceItem1')">Price 1</a>
+                  <a href="#" id="priceItem2" onclick="selectDropdownItem('priceItem2')">Price 2</a>
+                  <a href="#" id="priceItem3" onclick="selectDropdownItem('priceItem3')">Price 3</a>
+                </div>
+            </div>
+
+            <div class="type-dropdown">
+              <button onclick="dropdownItem('typeDropdown')" class="type-dropbtn">Type ▼</button>
+                <div id="typeDropdown" class="type-dropdown-content">
+                  <a href="#" id="typeItem1" onclick="selectDropdownItem('typeItem1')">Type 1</a>
+                  <a href="#" id="typeItem2" onclick="selectDropdownItem('typeItem2')">Type 2</a>
+                  <a href="#" id="typeItem3" onclick="selectDropdownItem('typeItem3')">Type 3</a>
+                </div>
+            </div>
+
+            
+
+          </div>
+
+          
+          <div class="recipe-grid" id="grid">
+
+            
+        </div>
+    <script src="javascript/test.js"></script>
+  </body>
+</html>
