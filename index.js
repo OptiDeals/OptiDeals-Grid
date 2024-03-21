@@ -9,7 +9,7 @@ const getGrid = function(){
 }
 
 const getJson = function(){
-    fetch('recipe.json')
+    fetch('https://raw.githubusercontent.com/OptiDeals/OptiDeals-Data/main/data/requestedRecipes/metro/recipe_20240321.json')
     .then(response => response.json())
     .then(data => doJson(data));
 }
@@ -24,7 +24,7 @@ function doJson(obj){
                 <br><br>
                 <span>`+obj[i].description+`</span>
                 <li>
-                    <ul class="recipe-info">`+obj[i].ingredients[0].name+`, `+obj[i].ingredients[0].amount+`, $`+obj[i].ingredients[0].cost+`</ul>
+                    <ul class="recipe-info">`+obj[i].ingredients[0].product+`, `+obj[i].ingredients[0].amount+`, $`+obj[i].ingredients[0].cost+`</ul>
                 </li>              
               </div>
         </button>`
