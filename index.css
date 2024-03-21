@@ -93,11 +93,15 @@
   justify-content: space-evenly;
 }
 
+.recipe-item ul{
+  text-align:left;
+}
+
 .recipe-item-button{
   margin: 15px;
   width: 400px;
   height: 400px;
-  padding: 75px 75px;
+  padding: 50px 50px;
   background-color: transparent;
   border: 2px solid black;
   border-radius: 10px;

@@ -23,13 +23,27 @@ function doJson(obj){
                 `+obj[i].name+`
                 <br><br>
                 <span>`+obj[i].description+`</span>
-                <li>
-                    <ul class="recipe-info">`+obj[i].ingredients[0].product+`, `+obj[i].ingredients[0].amount+`, $`+obj[i].ingredients[0].cost+`</ul>
-                </li>              
+                <br><br>
+                <ul>
+                `+populateCard(obj[i].ingredients)+`
+                </ul>      
               </div>
         </button>`
     }
 
+}
+
+function populateCard(ingredients){
+    let html = ``;
+    
+    for(let i = 0; i < ingredients.length ; i++){
+
+        html += `<li>${ingredients[i].product}, 
+                ${ingredients[i].amount}, 
+                $${ingredients[i].cost}</li><br>`
+    }
+
+    return html;
 }
 
 const recipes = new Array(12);
