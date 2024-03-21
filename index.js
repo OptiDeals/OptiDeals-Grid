@@ -12,8 +12,8 @@ const json = function(){
     fetch('recipe.json')
     .then(response => response.json())
     .then(jsonResponse => console.log(jsonResponse));
-    recipeJsonObject = jsonResponse.p
-    
+    recipeJsonObject = JSON.parse(jsonResponse);
+    console.log(recipeJsonObject);
 }
 
 const recipes = new Array(12);
