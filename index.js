@@ -38,7 +38,7 @@ function populateCard(ingredients){
     
     for(let i = 0; i < ingredients.length ; i++){
 
-        html += `<li>${ingredients[i].product}, 
+        html += `<li>${ingredients[i].name}, 
                 ${ingredients[i].amount}, 
                 $${ingredients[i].cost}</li><br>`
     }
