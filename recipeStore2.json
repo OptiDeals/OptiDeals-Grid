@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Test",
+    "description": "This is a test recipe",
+    "ingredients": [
+      {"name": "Ingredient 1", "amount": "450 g", "cost": 1.00},
+      {"name": "Ingredient 2", "amount": "1 lb", "cost": 1.00},
+      {"name": "Ingredient 3", "amount": "1 container", "cost": 1.00}
+    ],
+    "total_cost": 3.00,
+    "serves": 2
+  }
+]

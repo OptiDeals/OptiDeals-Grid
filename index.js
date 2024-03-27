@@ -1,20 +1,38 @@
 var recipeJsonObject;
 
+window.addEventListener('load', Init)
+
+const links =
+[
+    "recipeStore1.json",
+    "recipeStore2.json"
+]
+
+const defaultLink = "https://raw.githubusercontent.com/OptiDeals/OptiDeals-Data/main/data/requestedRecipes/metro/recipe_20240321.json";
+
+//get header html container
 const getHeader = function(){
     return document.getElementById("header");
 }
 
+//get grid html container
 const getGrid = function(){
     return document.getElementById("grid");
 }
 
-const getJson = function(link){
+//fetch json
+function getJson(link){
+    console.log("entered get json");
     fetch(link)
     .then(response => response.json())
     .then(data => doJson(data));
 }
 
+
+//start adding recipe cards to page
 function doJson(obj){
+
+    getGrid().innerHTML = "";
 
     for(let i = 0; i < obj.length ; i++){
         getGrid().innerHTML += 
@@ -26,13 +44,15 @@ function doJson(obj){
                 <br><br>
                 <ul>
                 `+populateCard(obj[i].ingredients)+`
-                </ul>      
+                </ul> 
+                <span>Total Cost: $`+obj[i].total_cost+`</span>     
               </div>
         </button>`
     }
 
 }
 
+//populate each card with recipe
 function populateCard(ingredients){
     let html = ``;
     
@@ -46,41 +66,17 @@ function populateCard(ingredients){
     return html;
 }
 
-const recipes = new Array(12);
-
-
-var headerContent;
-var gridContent;
-
 function dropdownItem(id){
     document.getElementById(id).classList.toggle("show");
 }
 
-function selectDropdownItem(item){
-    document.getElementById("footer").innerHTML = document.getElementById(item).innerHTML;
-}
+function Init(){
+    getJson(defaultLink);  
+    document.getElementById('storeItem1').addEventListener('click', function () {
+        getJson(links[0]);
+    })
 
-function createRecipes(){
-
-    getJson('https://raw.githubusercontent.com/OptiDeals/OptiDeals-Data/main/data/requestedRecipes/metro/recipe_20240321.json');
-
-    
-
-    
-}
-
-/*function viewRecipe(recipe){
-
-    headerContent = getHeader().innerHTML;
-    gridContent = getGrid().innerHTML;
-
-    getHeader().innerHTML = "<button onclick='returnToSelection()'>Go back</button>";
-    getGrid().innerHTML = "Recipe 1";
-}*/
-
-function returnToSelection(){
-
-    getHeader().innerHTML = headerContent;
-    getGrid().innerHTML = gridContent;
-
+    document.getElementById('storeItem2').addEventListener('click', function () {
+        getJson(links[1]);
+    })
 }

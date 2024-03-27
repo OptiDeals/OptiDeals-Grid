@@ -3,8 +3,6 @@ body {
   color: white;
 }
 
-
-
 .recipe-container {
   border-bottom:solid;
   width: 100%;
@@ -27,23 +25,6 @@ body {
   padding: 0px;
 }
 
-[class$="-dropdown"]{
-  flex:initial;
-  position: relative;
-  display: inline-block;
-  padding-left: 25px;
-}
-
-[class$="-dropbtn"]{
-  border: none;
-  background-color: #333333;
-  color: white;
-  font-size: 18px;
-  font-family: "Cabin", sans-serif;
-  font-weight: 500;
-}
-
-
 .store-dropdown-content{
   display: none;
   background-color: #333333;
@@ -55,6 +36,9 @@ body {
 
 .store-dropdown-content a{
   color: white;
+  font-size: 18px;
+  font-family: "Cabin", sans-serif;
+  font-weight: 500;
   text-decoration: none;
   text-align: center;
   padding: 15px 20px;
@@ -72,6 +56,9 @@ body {
 
 .price-dropdown-content a{
   color: white;
+  font-size: 18px;
+  font-family: "Cabin", sans-serif;
+  font-weight: 500;
   text-decoration: none;
   text-align: center;
   padding: 15px 20px;
@@ -89,6 +76,9 @@ body {
 
 .type-dropdown-content a{
   color: white;
+  font-size: 18px;
+  font-family: "Cabin", sans-serif;
+  font-weight: 500;
   text-decoration: none;
   text-align: center;
   padding: 15px 20px;
@@ -133,12 +123,31 @@ body {
   background-color: #474747;
 }
 
-
-
 .recipe-footer{
   flex:initial;
   height: 3em;
   text-align: center;
   border-top: solid;
 }
+
+[class$="-dropdown"]{
+  flex:initial;
+  position: relative;
+  display: inline-block;
+  padding-left: 25px;
+}
+
+[class$="-dropbtn"]{
+  border: none;
+  background-color: #333333;
+  color: white;
+  font-size: 18px;
+  font-family: "Cabin", sans-serif;
+  font-weight: 500;
+}
+
+[id$="Dropdown"] a:hover{
+  background-color: #474747;
+}
+
 
