@@ -8,8 +8,8 @@ const getGrid = function(){
     return document.getElementById("grid");
 }
 
-const getJson = function(){
-    fetch('https://raw.githubusercontent.com/OptiDeals/OptiDeals-Data/main/data/requestedRecipes/metro/recipe_20240321.json')
+const getJson = function(link){
+    fetch(link)
     .then(response => response.json())
     .then(data => doJson(data));
 }
@@ -62,7 +62,7 @@ function selectDropdownItem(item){
 
 function createRecipes(){
 
-    getJson();
+    getJson('https://raw.githubusercontent.com/OptiDeals/OptiDeals-Data/main/data/requestedRecipes/metro/recipe_20240321.json');
 
     
 
