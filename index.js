@@ -47,6 +47,8 @@ function displayJson(obj){
                     <br><br>
                     <span>`+obj[i].description+`</span>
                     <br><br>
+                    <span>Serves `+obj[i].serves+`<span>
+                    <br>
                     <ul>
                     `+populateCard(obj[i].ingredients)+`
                     </ul> 
@@ -117,14 +119,14 @@ function Init(){
     })
 
     document.getElementById('priceUnder10').addEventListener('click', function () {
-        filterJsonData(10);
-    })
-
-    document.getElementById('priceUnder20').addEventListener('click', function () {
         filterJsonData(20);
     })
 
-    document.getElementById('priceUnder30').addEventListener('click', function () {
+    document.getElementById('priceUnder20').addEventListener('click', function () {
         filterJsonData(30);
+    })
+
+    document.getElementById('priceUnder30').addEventListener('click', function () {
+        filterJsonData(40);
     })
 }
