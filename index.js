@@ -101,21 +101,24 @@ function filterJsonData(constraint){
 
 function highlightButton(id){
 
+    var clickedElement = document.getElementById(id);
+   
+
     document.querySelectorAll("[class='highlight-button']").forEach
     (
         item => {
-
-            if(!item.classList.contains("hide")){
+            
+            //any button with the same parent as the clicked dropdown button will have it's checkmark removed
+            //so that only one checkmark per dropdown is active
+            var dropdownParent = item.parentElement.parentElement;
+            
+            if(dropdownParent == clickedElement.parentNode){
 
                 item.classList.add("hide");
         
             }
-
-
         }
-        
-        
-        
+          
     );
 
     document.querySelectorAll("[id=" + CSS.escape(id) + "] > *").forEach(item => item.classList.remove("hide"));
