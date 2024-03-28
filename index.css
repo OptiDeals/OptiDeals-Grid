@@ -112,7 +112,7 @@ body {
   margin: 15px;
   width: 400px;
   height: auto;
-  padding: 25px 25px;
+  padding: 15px 15px;
   background-color: transparent;
   border: 1px solid white;
   border-radius: 10px;
@@ -130,6 +130,11 @@ body {
   border-top: solid;
 }
 
+li{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 [class$="-dropdown"]{
   flex:initial;
   position: relative;
@@ -144,6 +149,10 @@ body {
   font-size: 18px;
   font-family: "Cabin", sans-serif;
   font-weight: 500;
+}
+
+[class$="-dropbtn"]:hover{
+  background-color: #474747;
 }
 
 [id$="Dropdown"] a:hover{

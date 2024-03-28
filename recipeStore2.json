@@ -1,13 +1,186 @@
 [
   {
-    "name": "Test",
-    "description": "This is a test recipe",
-    "ingredients": [
-      {"name": "Ingredient 1", "amount": "450 g", "cost": 1.00},
-      {"name": "Ingredient 2", "amount": "1 lb", "cost": 1.00},
-      {"name": "Ingredient 3", "amount": "1 container", "cost": 1.00}
-    ],
-    "total_cost": 3.00,
-    "serves": 2
+      "name": "Vegetarian Pasta Primavera",
+      "description": "Delicious and healthy vegetarian pasta primavera with fresh vegetables and cheese.",
+      "ingredients": [
+          {
+              "name": "Pasta",
+              "amount": "200 g",
+              "cost": 1.5
+          },
+          {
+              "name": "Bell Peppers",
+              "amount": "1",
+              "cost": 0.75
+          },
+          {
+              "name": "Zucchini",
+              "amount": "1",
+              "cost": 1.0
+          },
+          {
+              "name": "Tomatoes",
+              "amount": "2",
+              "cost": 1.2
+          },
+          {
+              "name": "Mushrooms",
+              "amount": "100 g",
+              "cost": 1.5
+          },
+          {
+              "name": "Cheese",
+              "amount": "50 g",
+              "cost": 2.0
+          },
+          {
+              "name": "Basil",
+              "amount": "To taste",
+              "cost": 0.5
+          }
+      ],
+      "total_cost": 8.45,
+      "serves": 2
+  },
+  {
+      "name": "Vegetarian Stuffed Bell Peppers",
+      "description": "Tasty vegetarian stuffed bell peppers with quinoa, black beans, and cheese.",
+      "ingredients": [
+          {
+              "name": "Bell Peppers",
+              "amount": "4",
+              "cost": 3.0
+          },
+          {
+              "name": "Quinoa",
+              "amount": "1 cup",
+              "cost": 2.5
+          },
+          {
+              "name": "Black Beans",
+              "amount": "1 can (400 g)",
+              "cost": 1.99
+          },
+          {
+              "name": "Corn",
+              "amount": "1 cup",
+              "cost": 1.2
+          },
+          {
+              "name": "Tomatoes",
+              "amount": "2",
+              "cost": 1.2
+          },
+          {
+              "name": "Onion",
+              "amount": "1",
+              "cost": 0.75
+          },
+          {
+              "name": "Garlic",
+              "amount": "2 cloves",
+              "cost": 0.5
+          },
+          {
+              "name": "Cheese",
+              "amount": "100 g",
+              "cost": 2.0
+          },
+          {
+              "name": "Cumin",
+              "amount": "1 tsp",
+              "cost": 0.3
+          },
+          {
+              "name": "Paprika",
+              "amount": "1 tsp",
+              "cost": 0.3
+          },
+          {
+              "name": "Salt and Pepper",
+              "amount": "To taste",
+              "cost": 0.2
+          },
+          {
+              "name": "Cilantro",
+              "amount": "For garnish",
+              "cost": 0.5
+          }
+      ],
+      "total_cost": 15.94,
+      "serves": 4
+  },
+  {
+      "name": "Vegetarian Lentil Soup",
+      "description": "Comforting vegetarian lentil soup with a variety of vegetables and fragrant spices.",
+      "ingredients": [
+          {
+              "name": "Red Lentils",
+              "amount": "1 cup",
+              "cost": 1.5
+          },
+          {
+              "name": "Carrots",
+              "amount": "2",
+              "cost": 0.8
+          },
+          {
+              "name": "Celery Stalks",
+              "amount": "2",
+              "cost": 0.7
+          },
+          {
+              "name": "Onion",
+              "amount": "1",
+              "cost": 0.75
+          },
+          {
+              "name": "Garlic",
+              "amount": "2 cloves",
+              "cost": 0.5
+          },
+          {
+              "name": "Vegetable Broth",
+              "amount": "4 cups",
+              "cost": 2.5
+          },
+          {
+              "name": "Tomatoes",
+              "amount": "2",
+              "cost": 1.2
+          },
+          {
+              "name": "Spinach",
+              "amount": "100 g",
+              "cost": 1.0
+          },
+          {
+              "name": "Paprika",
+              "amount": "1 tsp",
+              "cost": 0.3
+          },
+          {
+              "name": "Cumin",
+              "amount": "1 tsp",
+              "cost": 0.3
+          },
+          {
+              "name": "Lemon",
+              "amount": "1",
+              "cost": 0.5
+          },
+          {
+              "name": "Fresh Parsley",
+              "amount": "For garnish",
+              "cost": 0.5
+          },
+          {
+              "name": "Salt and Pepper",
+              "amount": "To taste",
+              "cost": 0.2
+          }
+      ],
+      "total_cost": 10.85,
+      "serves": 4
   }
 ]
