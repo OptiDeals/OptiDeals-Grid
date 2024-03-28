@@ -18,7 +18,7 @@ body {
   text-align: center;
   border-bottom: solid;
   align-items: center;
-  gap: 30px;
+  gap: 50px;
 }
 
 .recipe-info{
@@ -35,6 +35,9 @@ body {
 }
 
 .store-dropdown-content a{
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
   color: white;
   font-size: 18px;
   font-family: "Cabin", sans-serif;
@@ -42,7 +45,6 @@ body {
   text-decoration: none;
   text-align: center;
   padding: 15px 20px;
-  display:block;
 }
 
 .price-dropdown-content{
@@ -55,6 +57,9 @@ body {
 }
 
 .price-dropdown-content a{
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
   color: white;
   font-size: 18px;
   font-family: "Cabin", sans-serif;
@@ -66,6 +71,9 @@ body {
 }
 
 .type-dropdown-content{
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
   display: none;
   background-color: #333333;
   position:absolute;
@@ -134,6 +142,15 @@ li{
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+.highlight-button{
+  color: lime;
+}
+
+.hide{
+  display:none;
+}
+
 
 [class$="-dropdown"]{
   flex:initial;

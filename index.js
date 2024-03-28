@@ -21,7 +21,6 @@ const getGrid = function(){
 
 //fetch json
 function getJson(link){
-    console.log("entered get json");
     fetch(link)
     .then(response => response.json())
     .then(data => saveJson(data));
@@ -100,10 +99,39 @@ function filterJsonData(constraint){
 
 }
 
+function highlightButton(id){
+
+    document.querySelectorAll("[class='highlight-button']").forEach
+    (
+        item => {
+
+            if(!item.classList.contains("hide")){
+
+                item.classList.add("hide");
+        
+            }
+
+
+        }
+        
+        
+        
+    );
+
+    document.querySelectorAll("[id=" + CSS.escape(id) + "] > *").forEach(item => item.classList.remove("hide"));
+}
+
 
 
 function dropdownItem(id){
-    document.getElementById(id).classList.toggle("show");
+
+    if(document.getElementById(id).classList.contains("show")){
+        document.getElementById(id).classList.remove("show");
+    }else{
+        document.getElementById(id).classList.add("show");
+    }
+
+    
 }
 
 function Init(){
@@ -112,21 +140,28 @@ function Init(){
 
     document.getElementById('storeItem1').addEventListener('click', function () {
         getJson(links[0]);
+        highlightButton('storeItem1');
     })
 
     document.getElementById('storeItem2').addEventListener('click', function () {
         getJson(links[1]);
-    })
-
-    document.getElementById('priceUnder10').addEventListener('click', function () {
-        filterJsonData(20);
+        highlightButton('storeItem2');
     })
 
     document.getElementById('priceUnder20').addEventListener('click', function () {
-        filterJsonData(30);
+        filterJsonData(20);
+        highlightButton('priceUnder20');
     })
 
     document.getElementById('priceUnder30').addEventListener('click', function () {
-        filterJsonData(40);
+        filterJsonData(30);
+        highlightButton('priceUnder30');
     })
+
+    document.getElementById('priceUnder40').addEventListener('click', function () {
+        filterJsonData(40);
+        highlightButton('priceUnder40');
+    })
+
+    
 }
