@@ -9,8 +9,6 @@ const links =
     "https://raw.githubusercontent.com/OptiDeals/OptiDeals-Data/main/data/requestedRecipes/foodBasics/"
 ]
 
-const defaultLink = "https://raw.githubusercontent.com/OptiDeals/OptiDeals-Data/main/data/requestedRecipes/metro/recipe_20240321.json";
-
 //get header html container
 const getHeader = function(){
     return document.getElementById("header");
@@ -108,7 +106,7 @@ function dropdownItem(id){
 
 function Init(){
 
-    getJson(defaultLink);  //change back to default github link
+    getJson(links[0]);  //change back to default github link
 
     document.getElementById('storeItem1').addEventListener('click', function () {
         getJson(links[0]);
