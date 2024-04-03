@@ -13,6 +13,10 @@ body {
 
 .recipe-header{
   display: flex;
+  position: fixed;
+  background-color: #333333;
+  top: 0;
+  width: 100%;
   flex:initial;
   height: 3em;
   text-align: center;
@@ -100,6 +104,7 @@ body {
 
 .recipe-grid{
   display:flex;
+  padding-top: 50px;
   flex: 1;
   flex-wrap: wrap;
   justify-content: space-evenly;
