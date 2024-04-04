@@ -24,8 +24,8 @@ header.classList.remove("sticky");
 
 const links =
 [
-    "https://raw.githubusercontent.com/OptiDeals/OptiDeals-Data/main/data/requestedRecipes/metro/recipe.json",
-    "https://raw.githubusercontent.com/OptiDeals/OptiDeals-Data/main/data/requestedRecipes/foodBasics/recipe.json"
+    "https://raw.githubusercontent.com/OptiDeals/OptiDeals-Data/main/data/requestedRecipes/foodBasics/recipe.json",
+    "https://raw.githubusercontent.com/OptiDeals/OptiDeals-Data/main/data/requestedRecipes/metro/recipe.json"
 ]
 
 //get header html container
