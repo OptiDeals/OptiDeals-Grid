@@ -1,5 +1,5 @@
 body {
-  background-color: #333333;
+  background-color: #0f0f0f;
   color: white;
 }
 
@@ -14,15 +14,16 @@ body {
 .recipe-header{
   display: flex;
   position: fixed;
-  background-color: #333333;
+  background-color: #0f0f0f;
   top: 0;
   width: 100%;
   flex:initial;
   height: 3em;
   text-align: center;
-  border-bottom: solid;
+  border-bottom: solid #fa5c05;
   align-items: center;
   gap: 50px;
+  box-shadow: 0px 8px 20px #51515a3b;
 }
 
 .recipe-info{
@@ -31,7 +32,7 @@ body {
 
 .store-dropdown-content{
   display: none;
-  background-color: #333333;
+  background-color: #0f0f0f;
   position:absolute;
   width: auto;
   box-shadow: 0px 8px 20px rgba(0,0,0,0.4);
@@ -53,7 +54,7 @@ body {
 
 .price-dropdown-content{
   display: none;
-  background-color: #333333;
+  background-color: #0f0f0f;
   position:absolute;
   width: auto;
   box-shadow: 0px 8px 20px rgba(0,0,0,0.4);
@@ -64,29 +65,6 @@ body {
   display: flex;
   justify-content: center;
   white-space: nowrap;
-  color: white;
-  font-size: 18px;
-  font-family: "Cabin", sans-serif;
-  font-weight: 500;
-  text-decoration: none;
-  text-align: center;
-  padding: 15px 20px;
-  display:block;
-}
-
-.type-dropdown-content{
-  display: flex;
-  justify-content: center;
-  white-space: nowrap;
-  display: none;
-  background-color: #333333;
-  position:absolute;
-  width: auto;
-  box-shadow: 0px 8px 20px rgba(0,0,0,0.4);
-  z-index: 1;
-}
-
-.type-dropdown-content a{
   color: white;
   font-size: 18px;
   font-family: "Cabin", sans-serif;
@@ -129,7 +107,7 @@ body {
   background-color: transparent;
   border: 1px solid white;
   border-radius: 10px;
-  box-shadow: 0px 8px 20px rgba(0,0,0,0.4);
+  box-shadow: 0px 8px 20px #51515a3b;
 }
 
 .recipe-item-button:hover{
@@ -166,7 +144,7 @@ li{
 
 [class$="-dropbtn"]{
   border: none;
-  background-color: #333333;
+  background-color: #0f0f0f;
   color: white;
   font-size: 18px;
   font-family: "Cabin", sans-serif;
