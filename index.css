@@ -4,7 +4,6 @@ body {
 }
 
 .recipe-container {
-  border-bottom: solid #fa5c05;
   width: 100%;
   display: flex;
   align-items: stretch;
@@ -117,7 +116,7 @@ body {
   flex:initial;
   height: 3em;
   text-align: center;
-  border-top: solid;
+  border-top: solid #fa5c05;
 }
 
 li{
