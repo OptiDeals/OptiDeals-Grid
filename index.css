@@ -158,4 +158,19 @@ li{
   background-color: #474747;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #51515a21;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #fa5c05;
+  border-radius: 10px;
+}
 
