@@ -159,7 +159,7 @@ li{
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 /* Track */
@@ -170,7 +170,7 @@ li{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #fa5c05;
+  background: #fa8305;
   border-radius: 10px;
 }
 
