@@ -8,6 +8,7 @@ body {
   display: flex;
   align-items: stretch;
   flex-direction: column;
+  border-bottom: solid #fa5c05;
 }
 
 .recipe-header{
@@ -110,13 +111,6 @@ body {
 
 .recipe-item-button:hover{
   background-color: #474747;
-}
-
-.recipe-footer{
-  flex:initial;
-  height: 3em;
-  text-align: center;
-  border-top: solid #fa5c05;
 }
 
 li{
