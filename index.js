@@ -58,23 +58,26 @@ function displayJson(obj){
     
     for(let i = 0; i < obj.length ; i++){
         if(obj[i] != null){
-            getGrid().innerHTML += 
-            `<button onclick="viewRecipe('recipe')" class="recipe-item-button" type="button">
-                  <div class="recipe-item">
-                    `+obj[i].name+`
-                    <br><br>
-                    <span>`+obj[i].description+`</span>
-                    <br><br>
-                    <span>Serves `+obj[i].serves+`<span>
-                    <br>
-                    <ul>
-                    `+populateCard(obj[i].ingredients)+`
-                    </ul> 
-                    <span>Total Cost: $`+obj[i].total_cost+`</span>     
-                  </div>
-            </button>`
+        let recipeProperty = 'recipe_' + (i+1);
+        let name = obj[i].name ? obj[i].name : obj[i][recipeProperty];
+        getGrid().innerHTML += 
+        `<button onclick="viewRecipe('recipe')" class="recipe-item-button" type="button">
+              <div class="recipe-item">
+                `+name+`
+                <br><br>
+                <span>`+obj[i].description+`</span>
+                <br><br>
+                <span>Serves `+obj[i].serves+`<span>
+                <br>
+                <ul>
+                `+populateCard(obj[i].ingredients)+`
+                </ul> 
+                <span>Total Cost: $`+obj[i].total_cost+`</span>     
+              </div>
+        </button>`
         }      
     }
+
 
 }
  
