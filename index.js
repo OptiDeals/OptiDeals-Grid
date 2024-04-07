@@ -24,8 +24,8 @@ header.classList.remove("sticky");
 
 const links =
 [
-    "https://raw.githubusercontent.com/OptiDeals/OptiDeals-Data/main/data/requestedRecipes/foodBasics/recipe.json",
-    "https://raw.githubusercontent.com/OptiDeals/OptiDeals-Data/main/data/requestedRecipes/metro/recipe.json"
+    "https://raw.githubusercontent.com/OptiDeals/OptiDeals-Data/main/data/requestedRecipes/foodBasics/recipes.json",
+    "https://raw.githubusercontent.com/OptiDeals/OptiDeals-Data/main/data/requestedRecipes/metro/recipes.json"
 ]
 
 //get header html container
@@ -58,21 +58,23 @@ function displayJson(obj){
     
     for(let i = 0; i < obj.length ; i++){
         if(obj[i] != null){
+        let recipeProperty = 'recipe_' + (i+1);
+        let name = obj[i].name ? obj[i].name : obj[i][recipeProperty];
         getGrid().innerHTML += 
-            `<button onclick="viewRecipe('recipe')" class="recipe-item-button" type="button">
-                  <div class="recipe-item">
-                    `+obj[i].name+`
-                    <br><br>
-                    <span>`+obj[i].description+`</span>
-                    <br><br>
-                    <span>Serves `+obj[i].serves+`<span>
-                    <br>
-                    <ul>
-                    `+populateCard(obj[i].ingredients)+`
-                    </ul> 
-                    <span>Total Cost: $`+obj[i].total_cost+`</span>     
-                  </div>
-            </button>`
+        `<button onclick="viewRecipe('recipe')" class="recipe-item-button" type="button">
+              <div class="recipe-item">
+                `+name+`
+                <br><br>
+                <span>`+obj[i].description+`</span>
+                <br><br>
+                <span>Serves `+obj[i].serves+`<span>
+                <br>
+                <ul>
+                `+populateCard(obj[i].ingredients)+`
+                </ul> 
+                <span>Total Cost: $`+obj[i].total_cost+`</span>     
+              </div>
+        </button>`
         }      
     }
 
