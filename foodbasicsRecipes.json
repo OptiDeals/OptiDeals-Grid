@@ -87,17 +87,17 @@
         {
           "name": "Quinoa",
           "amount": "1 cup",
-          "cost": "assumed no cost"
+          "cost": "2.00"
         },
         {
           "name": "Olive Oil",
           "amount": "2 tablespoons",
-          "cost": "assumed no cost"
+          "cost": "0.00"
         },
         {
           "name": "Seasoning",
           "amount": "to taste",
-          "cost": "assumed no cost"
+          "cost": "0.00"
         }
       ],
       "total_cost": "4.00",
