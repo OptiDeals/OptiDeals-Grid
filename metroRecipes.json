@@ -21,12 +21,12 @@
       {
         "name": "Olive Oil",
         "amount": "2 tbsp",
-        "cost": "included"
+        "cost": "0.00"
       },
       {
         "name": "Salt and Pepper",
         "amount": "to taste",
-        "cost": "included"
+        "cost": "0.00"
       }
     ],
     "total_cost": "12.95",
@@ -54,17 +54,17 @@
       {
         "name": "Lemon Juice",
         "amount": "1 tbsp",
-        "cost": "included"
+        "cost": "0.00"
       },
       {
         "name": "Olive Oil",
         "amount": "2 tbsp",
-        "cost": "included"
+        "cost": "0.00"
       },
       {
         "name": "Salt and Pepper",
         "amount": "to taste",
-        "cost": "included"
+        "cost": "0.00"
       }
     ],
     "total_cost": "14.25",
