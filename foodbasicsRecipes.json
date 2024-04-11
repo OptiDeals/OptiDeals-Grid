@@ -1,106 +1,58 @@
 [
-    {
-      "name": "Beef and Grape Tomato Salad",
-      "description": "A fresh and light salad featuring lean ground beef, juicy grape tomatoes, and a blend of spinach and garden salad, lightly seasoned and dressed with olive oil and balsamic vinegar.",
-      "ingredients": [
-        {
-          "name": "Lean Ground Beef",
-          "amount": "450 g",
-          "cost": "2.84"
-        },
-        {
-          "name": "Grape Tomatoes",
-          "amount": "227 g",
-          "cost": "2.98"
-        },
-        {
-          "name": "Spinach",
-          "amount": "284 g",
-          "cost": "2.5"
-        },
-        {
-          "name": "Garden Salad",
-          "amount": "340 g",
-          "cost": "2.5"
-        }
-      ],
-      "total_cost": "10.82",
-      "serves": "4"
-    },
-    {
-      "name": "Classic Bacon Cheeseburger",
-      "description": "Savor the irresistible taste of a classic bacon cheeseburger featuring juicy ground beef, crispy bacon, melted cheddar cheese, fresh lettuce, and ripe tomatoes, all packed into a soft sesame bun. Perfect for a hearty lunch or a casual dinner.",
-      "ingredients": [
-        {
-          "name": "Ground Beef",
-          "amount": "450 g",
-          "cost": "2.84"
-        },
-        {
-          "name": "Hickory Smoked Classic Cut Bacon",
-          "amount": "4 slices",
-          "cost": "0.67"
-        },
-        {
-          "name": "Cheddar Flavoured Sliced Cheese",
-          "amount": "2 slices",
-          "cost": "0.83"
-        },
-        {
-          "name": "Local Greenhouse Grape Tomatoes",
-          "amount": "3 tomatoes",
-          "cost": "1.00"
-        },
-        {
-          "name": "Sesame Seeds White Hamburger Buns, Deluxe",
-          "amount": "2 buns",
-          "cost": "0.75"
-        },
-        {
-          "name": "Lettuce (Garden Salad)",
-          "amount": "50 g",
-          "cost": "0.37"
-        }
-      ],
-      "total_cost": "5.46",
-      "serves": "2"
-    },
-    {
-      "name": "Grilled Vegetable Medley with Quinoa",
-      "description": "Enjoy a healthy and vibrant grilled vegetable medley served with fluffy quinoa. This dish combines the fresh tastes of zucchini, cauliflower, and carrots, with a spice-infused quinoa base, perfect for a nutritious dinner.",
-      "ingredients": [
-        {
-          "name": "Zucchini",
-          "amount": "1 medium",
-          "cost": "0.91"
-        },
-        {
-          "name": "Cauliflower",
-          "amount": "1 head",
-          "cost": "1.84"
-        },
-        {
-          "name": "Local Nantes Carrots",
-          "amount": "200 g",
-          "cost": "1.25"
-        },
-        {
-          "name": "Quinoa",
-          "amount": "1 cup",
-          "cost": "2.00"
-        },
-        {
-          "name": "Olive Oil",
-          "amount": "2 tablespoons",
-          "cost": "0.00"
-        },
-        {
-          "name": "Seasoning",
-          "amount": "to taste",
-          "cost": "0.00"
-        }
-      ],
-      "total_cost": "4.00",
-      "serves": "2"
-    }
-  ]
+  {
+    "name": "Honey Nut Cheerios with Fresh Berries",
+    "description": "Start your day with a balanced breakfast of Honey Nut Cheerios topped with fresh berries for a burst of freshness and energy.",
+    "ingredients": [
+      {
+        "name": "Honey Nut Oats Cereal, Cheerios",
+        "amount": "30 g",
+        "cost": "0.23"
+      },
+      {
+        "name": "Raspberries",
+        "amount": "85 g",
+        "cost": "1.99"
+      },
+      {
+        "name": "Blackberries",
+        "amount": "85 g",
+        "cost": "0.92"
+      },
+      {
+        "name": "Blueberries",
+        "amount": "85 g",
+        "cost": "0.92"
+      }
+    ],
+    "total_cost": "4.06",
+    "serves": 1
+  },
+  {
+    "name": "Grilled Cheese and Tomato Soup",
+    "description": "A comforting classic, enjoy a zesty tomato soup paired with a warm grilled cheese sandwich, perfect for a quick and satisfying meal.",
+    "ingredients": [
+      {
+        "name": "Tomato Condensed Soup",
+        "amount": "284 mL",
+        "cost": "0.99"
+      },
+      {
+        "name": "Hothouse Red Tomato",
+        "amount": "150 g",
+        "cost": "0.65"
+      },
+      {
+        "name": "Multigrain Sliced Bread",
+        "amount": "2 slices",
+        "cost": "0.20"
+      },
+      {
+        "name": "Shredded Mozzarella Cheese",
+        "amount": "50 g",
+        "cost": "0.69"
+      }
+    ],
+    "total_cost": "2.53",
+    "serves": 1
+  }
+]

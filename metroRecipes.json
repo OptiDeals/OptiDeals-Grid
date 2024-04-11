@@ -1,91 +1,73 @@
 [
   {
-    "name": "Grilled Angus Beef Eye of Round Steak with Side of Vegetables",
-    "description": "Perfectly seasoned and grilled Angus Beef Eye of Round steak served with a fresh side of grilled vegetables. A hearty and satisfying meal that's simple to make yet impressively delicious.",
+    "name": "Roasted Chicken with Asparagus and Baby Spinach Salad",
+    "description": "A healthy and hearty meal featuring seasoned roasted chicken thighs served with a fresh asparagus and baby spinach salad, perfect for a nutritious dinner.",
     "ingredients": [
       {
-        "name": "Angus Beef Eye Of Round Roast",
-        "amount": "1 roast",
-        "cost": "17.61"
+        "name": "Boneless Skinless Chicken Thighs",
+        "amount": "2 thighs",
+        "cost": "2.20"
       },
       {
-        "name": "Raspberries",
-        "amount": "170 g",
-        "cost": "2.5"
+        "name": "Asparagus",
+        "amount": "1 bunch",
+        "cost": "5.98"
       },
       {
-        "name": "Wrapped Broccoli Crown",
-        "amount": "1 un",
-        "cost": "1.99"
+        "name": "Baby Spinach",
+        "amount": "142 g",
+        "cost": "4.77"
+      },
+      {
+        "name": "Olive Oil",
+        "amount": "2 tbsp",
+        "cost": "included"
+      },
+      {
+        "name": "Salt and Pepper",
+        "amount": "to taste",
+        "cost": "included"
       }
     ],
-    "total_cost": "22.10",
-    "serves": "4"
+    "total_cost": "12.95",
+    "serves": "2"
   },
   {
-    "name": "Stuffed Beef Cubes Casserole",
-    "description": "Delicious oven-baked Beef Cubes stuffed with White Cheddar, wrapped in bacon, served with a side of broccoli and a cucumber salad.",
+    "name": "Greek Salad with Herbed Turkey and Cucumber",
+    "description": "Enjoy a refreshing and light Greek salad enhanced with slices of herbed turkey breast and fresh cucumbers, dressed with olive oil and a touch of lemon.",
     "ingredients": [
       {
-        "name": "Boneless Stewing Beef Cubes",
-        "amount": "1 pack",
-        "cost": "11.89"
-      },
-      {
-        "name": "Extra Old White Cheddar Cheese",
+        "name": "Roasted Garlic and Herb Turkey Breast",
         "amount": "200 g",
-        "cost": "2.39"
+        "cost": "7.99"
       },
       {
-        "name": "Bacon",
-        "amount": "3 slices",
-        "cost": "0.32"
+        "name": "English Cucumber",
+        "amount": "1 cucumber",
+        "cost": "1.49"
       },
       {
-        "name": "Wrapped Broccoli Crown",
-        "amount": "1 un",
-        "cost": "1.99"
+        "name": "Baby Spinach",
+        "amount": "142 g",
+        "cost": "4.77"
       },
       {
-        "name": "Local Mini Cucumbers",
-        "amount": "3 un",
-        "cost": "0.6"
+        "name": "Lemon Juice",
+        "amount": "1 tbsp",
+        "cost": "included"
+      },
+      {
+        "name": "Olive Oil",
+        "amount": "2 tbsp",
+        "cost": "included"
+      },
+      {
+        "name": "Salt and Pepper",
+        "amount": "to taste",
+        "cost": "included"
       }
     ],
-    "total_cost": "17.19",
-    "serves": "4"
-  },
-  {
-    "name": "Hearty Beef and Cheddar Pizza",
-    "description": "A hearty pizza topped with ground beef, extra old white cheddar, and fresh vegetables, perfect for a family dinner.",
-    "ingredients": [
-      {
-        "name": "Extra Lean Ground Beef",
-        "amount": "450 g",
-        "cost": "4.41"
-      },
-      {
-        "name": "Local Mini Cucumbers",
-        "amount": "1 un",
-        "cost": "0.2"
-      },
-      {
-        "name": "Wrapped Broccoli Crown",
-        "amount": "1/2 un",
-        "cost": "1.0"
-      },
-      {
-        "name": "Extra Old White Cheddar Cheese",
-        "amount": "150 g",
-        "cost": "1.79"
-      },
-      {
-        "name": "Frozen Deluxe Pizza, Rising Crust",
-        "amount": "1 un",
-        "cost": "5.99"
-      }
-    ],
-    "total_cost": "13.39",
-    "serves": "4"
+    "total_cost": "14.25",
+    "serves": "2"
   }
 ]
