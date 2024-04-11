@@ -58,7 +58,7 @@ function displayJson(obj){
     
     for(let i = 0; i < obj.length ; i++){
         if(obj[i] != null){
-            getGrid().innerHTML += 
+        getGrid().innerHTML += 
             `<button onclick="viewRecipe('recipe')" class="recipe-item-button" type="button">
                   <div class="recipe-item">
                     `+obj[i].name+`
@@ -75,6 +75,7 @@ function displayJson(obj){
             </button>`
         }      
     }
+
 
 }
  
