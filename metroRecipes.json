@@ -69,5 +69,28 @@
     ],
     "total_cost": "14.25",
     "serves": "2"
+  },
+  {
+    "name": "Grilled Salmon with Swiss Chard and Raspberries",
+    "description": "Enjoy a healthy and satisfying meal with grilled coho salmon, served alongside sautéed Swiss chard and a fresh raspberry relish.",
+    "ingredients": [
+      {"name": "Boneless Coho Salmon Fillet", "amount": "1 tray", "cost": "19.82"},
+      {"name": "Green Swiss Chard", "amount": "1 bunch", "cost": "2.99"},
+      {"name": "Raspberries", "amount": "170 g", "cost": "3.99"}
+    ],
+    "total_cost": "26.80",
+    "serves": "2"
+  },
+  {
+    "name": "Chicken Breast with Romaine Lettuce Heart Salad and Clementines",
+    "description": "A light and nourishing meal featuring seasoned grilled chicken breasts, a crisp romaine lettuce heart salad, and juicy clementines for a sweet finish.",
+    "ingredients": [
+      {"name": "Boneless, Skinless Chicken Breasts, Prime", "amount": "1 tray", "cost": "11.11"},
+      {"name": "Romaine Lettuce Hearts", "amount": "1 package", "cost": "2.99"},
+      {"name": "Bag of Clementines", "amount": "2 lb", "cost": "4.99"},
+      {"name": "Olive Oil and Cracked Pepper Seasoned Crackers", "amount": "200 g", "cost": "2.49"}
+    ],
+    "total_cost": "21.58",
+    "serves": "4"
   }
 ]
