@@ -83,7 +83,7 @@ async function displayRecipes() {
                     `<button onclick="viewRecipe('recipe')" class="recipe-item-button" type="button">
                           <div class="recipe-item">
                             <div class="recipe-info">
-                            `+ row.recipe_title + row.recipe_store +`
+                            `+row.recipe_title+`
                             <br><br>
                             <span>`+ row.recipe_description + `</span>
                             <br><br>
