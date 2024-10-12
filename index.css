@@ -94,14 +94,22 @@ body {
   font-weight: 500;
 }
 
+.recipe-list{
+display: inline-block;
+}
+
+img{
+  border:3px solid white;
+  border-radius: 20px;
+}
+
 .recipe-item ul{
   text-align:left;
 }
 
 .recipe-item-button{
   margin: 15px;
-  width: 400px;
-  height: auto;
+  width: 40%;
   padding: 15px 15px;
   background-color: transparent;
   border: 1px solid white;

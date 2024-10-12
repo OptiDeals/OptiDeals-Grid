@@ -1,56 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>OptiDeals</title>
-          <script src="index.js"></script> 
-          <link href="./index.css" rel="stylesheet"/>
-          <link rel="preconnect" href="https://fonts.googleapis.com">
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-          <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 
-  </head>
-  <body>
+<head>
+  <title>OptiDeals</title>
+  <script src='sql-wasm.js'></script>
+  <script src="index.js"></script>
+  <link href="./index.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
 
 
-        <div class="recipe-container">
-          <div class="recipe-header" id="header">
+  <div class="recipe-container">
+    <div class="recipe-header" id="header">
 
-            <div class="store-dropdown">
-              <button onclick="dropdownItem('storeDropdown')" class="store-dropbtn">Store ▼</button>
-                <div id="storeDropdown" class="store-dropdown-content">
-                  <a href="#" id="storeItem1">Metro<span class="highlight-button">&nbsp;✔</span></a>
-                  <a href="#" id="storeItem2">Food Basics<span class="highlight-button hide">&nbsp;✔</span></a>
-                </div>
-            </div>
+      <div class="store-dropdown">
+        <button onclick="dropdownItem('storeDropdown')" class="store-dropbtn">Store ▼</button>
+        <div id="storeDropdown" class="store-dropdown-content">
+          <a href="#" id="storeItem1">Metro<span class="highlight-button hide">&nbsp;✔</span></a>
+          <a href="#" id="storeItem2">Food Basics<span class="highlight-button hide">&nbsp;✔</span></a>
+          <a href="#" id="storeItem3">All<span class="highlight-button">&nbsp;✔</span></a>
+        </div>
+      </div>
 
-            <div class="price-dropdown">
-              <button onclick="dropdownItem('priceDropdown')" class="price-dropbtn">Price ▼</button>
-                <div id="priceDropdown" class="price-dropdown-content">
-                  <a href="#" id="priceUnder20">Under $20<span class="highlight-button hide">&nbsp;✔</span></a>
-                  <a href="#" id="priceUnder30">Under $30<span class="highlight-button hide">&nbsp;✔</span></a>
-                  <a href="#" id="priceUnder40">Under $40<span class="highlight-button">&nbsp;✔</span></a>
-                </div>
-            </div>
+      <div class="price-dropdown">
+        <button onclick="dropdownItem('priceDropdown')" class="price-dropbtn">Price ▼</button>
+        <div id="priceDropdown" class="price-dropdown-content">
+          <a href="#" id="priceUnder20">Under $20<span class="highlight-button hide">&nbsp;✔</span></a>
+          <a href="#" id="priceUnder30">Under $30<span class="highlight-button hide">&nbsp;✔</span></a>
+          <a href="#" id="priceUnder40">Under $40<span class="highlight-button hide">&nbsp;✔</span></a>
+          <a href="#" id="priceNoFilter">No Price Filter<span class="highlight-button">&nbsp;✔</span></a>
+        </div>
+      </div>
 
-           <!-- <div class="type-dropdown"> 
+      <!-- <div class="type-dropdown"> 
               <button onclick="dropdownItem('typeDropdown')" class="type-dropbtn">Type ▼</button>
                 <div id="typeDropdown" class="type-dropdown-content">
                   <a href="#" id="typeItem1">Vegan</a>
                 </div>
-            </div> --> 
+            </div> -->
 
-            
 
-          </div>
 
-          
-          <div class="recipe-grid" id="grid">
+    </div>
 
-            
-        </div>
 
-        <div class="recipe-footer">
-          
-        </div>
-  </body>
+    <div class="recipe-grid" id="grid">
+
+
+    </div>
+
+    <div class="recipe-footer">
+
+    </div>
+</body>
+
 </html>
