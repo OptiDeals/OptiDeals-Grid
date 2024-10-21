@@ -13,7 +13,11 @@ async function fetchDatabase(sqlPromise) {
 
 async function loadRecipes() {
     const db = await fetchDatabase(sqlPromise);
-    const stmt = db.prepare("SELECT recipe_title, recipe_image FROM recipes ORDER BY recipe_date DESC");
+    const latestDateStmt = db.prepare("SELECT MAX(recipe_date) as latest_date FROM recipes");
+    const latestDateRow = latestDateStmt.getAsObject();
+    const latestDate = latestDateRow.latest_date;
+    const stmt = db.prepare(`SELECT * FROM recipes WHERE recipe_date = '${latestDate}'`);
+
 
     while (stmt.step()) {
         const row = stmt.getAsObject();
