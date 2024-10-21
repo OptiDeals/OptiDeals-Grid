@@ -13,7 +13,7 @@ async function fetchDatabase(sqlPromise) {
 
 async function loadRecipes() {
     const db = await fetchDatabase(sqlPromise);
-    const stmt = db.prepare("SELECT recipe_title, recipe_image FROM recipes");
+    const stmt = db.prepare("SELECT recipe_title, recipe_image FROM recipes ORDER BY recipe_date DESC");
 
     while (stmt.step()) {
         const row = stmt.getAsObject();
