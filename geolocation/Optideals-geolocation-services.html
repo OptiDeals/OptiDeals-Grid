@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deals with OptiDeals</title>
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS for Styling -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;  /* Dark background */
+            color: #fff;  /* Light text color */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            text-align: center;
+            margin-top: 40px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        h1 span {
+            color: #ffa726; /* Highlighted color (orange) */
+        }
+
+        p.subtitle {
+            text-align: center;
+            color: #9e9e9e; /* Subtitle in light gray */
+            font-size: 1.2rem;
+        }
+
+        /* Search Section */
+        #search-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 15px;
+            width: 300px;
+            border-radius: 30px;
+            border: none;
+            margin-right: 10px;
+            font-size: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #333; /* Darker input background */
+            color: #fff;
+        }
+
+        input[type="text"]::placeholder {
+            color: #9e9e9e;
+        }
+
+        button {
+            background-color: #ffa726; /* Orange color similar to OptiDeals buttons */
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff9800; /* Darker orange on hover */
+        }
+
+        #map {
+            height: 500px;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        /* Footer Section */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            background-color: #1c1c1c;
+            color: #9e9e9e;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #ffa726;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Custom Hero Section */
+        .hero-section {
+            background-image: url('/mnt/data/image.png'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+        }
+
+        .hero-buttons button {
+            background-color: #ffa726;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            border: none;
+            color: white;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .hero-buttons button:hover {
+            background-color: #ff9800;
+        }
+    </style>
+
+    <!-- Google Maps and Places API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXonhf9zYkKE5CCFBJtbjrgfg7eaUV6T0&libraries=places"></script>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>Deals with <span>OptiDeals</span></h1>
+        <p class="subtitle">Find your local grocery stores with OptiDeals!</p>
+        <div class="hero-buttons">
+            <button onclick="getGeolocation()">Use My Location</button>
+            <button>View Features</button>
+        </div>
+    </div>
+
+    <!-- Search Section -->
+    <div id="search-section">
+        <input type="text" id="locationInput" placeholder="Enter Postal Code or Street Address">
+        <button onclick="findStores()">Find Stores</button>
+    </div>
+
+    <!-- Map Section -->
+    <div id="map"></div>
+
+    <!-- Footer Section -->
+    <footer>
+        &copy; 2024 OptiDeals. All rights reserved. <br />
+        <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function findStores() {
+            var locationInput = document.getElementById('locationInput').value;
+            if (!locationInput) {
+                alert('Please enter a postal code or street address.');
+                return;
+            }
+
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ 'address': locationInput, 'region': 'CA' }, function(results, status) {
+                if (status === 'OK' && results.length > 0) {
+                    var pos = results[0].geometry.location;
+                    initMap(pos);
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+
+        function getGeolocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    initMap(pos);
+                }, function() {
+                    alert('Geolocation failed or was denied by the user.');
+                });
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        }
+
+        function initMap(pos) {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: pos,
+                zoom: 15
+            });
+
+            var service = new google.maps.places.PlacesService(map);
+            service.nearbySearch({
+                location: pos,
+                radius: 5000,
+                type: ['grocery_or_supermarket'],
+                keyword: ['Food Basics', 'Metro', 'No Frills']
+            }, function(results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    for (var i = 0; i < results.length; i++) {
+                        createMarker(results[i]);
+                    }
+                } else {
+                    alert('Places search failed: ' + status);
+                }
+            });
+
+            function createMarker(place) {
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: place.geometry.location
+                });
+
+                var request = {
+                    placeId: place.place_id,
+                    fields: ['name', 'vicinity', 'formatted_phone_number', 'rating', 'opening_hours', 'photos']
+                };
+
+                service.getDetails(request, function(details, status) {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+                        google.maps.event.addListener(marker, 'click', function() {
+                            var infowindow = new google.maps.InfoWindow({
+                                content: getInfoContent(details)
+                            });
+                            infowindow.open(map, marker);
+                        });
+                    }
+                });
+            }
+
+            function getInfoContent(place) {
+                var name = place.name || 'No name available';
+                var address = place.vicinity || 'No address available';
+                var rating = place.rating ? `Rating: ${place.rating} stars` : 'No rating available';
+                var openingHours = place.opening_hours ? formatHours(place.opening_hours.weekday_text) : 'Hours not available';
+                var phone = place.formatted_phone_number || 'Phone number not available';
+                var photoUrl = place.photos && place.photos.length > 0 ? place.photos[0].getUrl({ maxWidth: 200, maxHeight: 200 }) : '';
+
+                var content = `<div style="text-align:center;">
+                                ${photoUrl ? `<img src="${photoUrl}" alt="${name} Image" style="width:100%; height:auto; margin-bottom: 10px;">` : ''}
+                                <h2>${name}</h2>
+                                <p>${address}</p>
+                                <p><strong>Contact:</strong><br>${phone}</p>
+                                <p>${rating}</p>
+                                <p><strong>Hours:</strong><br>${openingHours}</p>
+                               </div>`;
+                return content;
+            }
+
+            function formatHours(hoursArray) {
+                return hoursArray.join('<br>');
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+    <!-- JavaScript -->
+    <script>
+        function findStores() {
+            var locationInput = document.getElementById('locationInput').value;
+            if (!locationInput) {
+                alert('Please enter a postal code or street address.');
+                return;
+            }
+
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ 'address': locationInput, 'region': 'CA' }, function(results, status) {
+                if (status === 'OK' && results.length > 0) {
+                    var pos = results[0].geometry.location;
+                    initMap(pos);
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+
+        function getGeolocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    initMap(pos);
+                }, function() {
+                    alert('Geolocation failed or was denied by the user.');
+                });
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        }
+
+        function initMap(pos) {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: pos,
+                zoom: 15
+            });
+
+            var service = new google.maps.places.PlacesService(map);
+            service.nearbySearch({
+                location: pos,
+                radius: 5000,
+                type: ['grocery_or_supermarket'],
+                keyword: ['Food Basics', 'Metro', 'No Frills']
+            }, function(results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    for (var i = 0; i < results.length; i++) {
+                        createMarker(results[i]);
+                    }
+                } else {
+                    alert('Places search failed: ' + status);
+                }
+            });
+
+            function createMarker(place) {
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: place.geometry.location
+                });
+
+                var request = {
+                    placeId: place.place_id,
+                    fields: ['name', 'vicinity', 'formatted_phone_number', 'rating', 'opening_hours', 'photos']
+                };
+
+                service.getDetails(request, function(details, status) {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+                        google.maps.event.addListener(marker, 'click', function() {
+                            var infowindow = new google.maps.InfoWindow({
+                                content: getInfoContent(details)
+                            });
+                            infowindow.open(map, marker);
+                        });
+                    }
+                });
+            }
+
+            function getInfoContent(place) {
+                var name = place.name || 'No name available';
+                var address = place.vicinity || 'No address available';
+                var rating = place.rating ? `Rating: ${place.rating} stars` : 'No rating available';
+                var openingHours = place.opening_hours ? formatHours(place.opening_hours.weekday_text) : 'Hours not available';
+                var phone = place.formatted_phone_number || 'Phone number not available';
+                var photoUrl = place.photos && place.photos.length > 0 ? place.photos[0].getUrl({ maxWidth: 200, maxHeight: 200 }) : '';
+
+                var content = `<div style="text-align:center;">
+                                ${photoUrl ? `<img src="${photoUrl}" alt="${name} Image" style="width:100%; height:auto; margin-bottom: 10px;">` : ''}
+                                <h2>${name}</h2>
+                                <p>${address}</p>
+                                <p><strong>Contact:</strong><br>${phone}</p>
+                                <p>${rating}</p>
+                                <p><strong>Hours:</strong><br>${openingHours}</p>
+                               </div>`;
+                return content;
+            }
+
+            function formatHours(hoursArray) {
+                return hoursArray.join('<br>');
+            }
+        }
+    </script>
+</body>
+</html>
+
