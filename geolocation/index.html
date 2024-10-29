@@ -132,7 +132,7 @@
     </style>
 
     <!-- Google Maps and Places API -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXonhf9zYkKE5CCFBJtbjrgfg7eaUV6T0&libraries=places"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=$GOOGLE_API_KEY&libraries=places"></script>
 </head>
 <body>
 
@@ -314,7 +314,7 @@
                 location: pos,
                 radius: 5000,
                 type: ['grocery_or_supermarket'],
-                keyword: ['Food Basics', 'Metro', 'No Frills']
+                keyword: ['Food Basics', 'Metro']
             }, function(results, status) {
                 if (status === google.maps.places.PlacesServiceStatus.OK) {
                     for (var i = 0; i < results.length; i++) {
