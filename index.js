@@ -53,7 +53,7 @@ async function displayRecipes() {
     getGrid().innerHTML = "";
 
     const db = await fetchDatabase(sqlPromise);
-    const recipes_stmt = db.prepare("SELECT * FROM recipes");
+    const recipes_stmt = db.prepare("select * from recipes ORDER BY recipe_date DESC");
 
     //run through each recipe in the recipes table
     while (recipes_stmt.step()) {
