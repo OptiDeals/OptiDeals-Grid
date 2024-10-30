@@ -122,7 +122,7 @@ console.log(essentialsFilter);
 
         ingredientsHtml +=`<div class = "divContainerForAllStoreItems" data =${row.grocery_store}><strong>${row.grocery_ingredient}</strong><br>
                         ${row.grocery_amount} x
-                        $${row.grocery_cost}</div>`;        
+                        $${row.grocery_cost} from</div>`;        
     
         }
         if (!hasResults) {
@@ -133,11 +133,11 @@ console.log(essentialsFilter);
             const store = div.getAttribute('data');
             
             if (store === 'metro') {
-                div.innerHTML+=`<div style="color: red;"> from Metro</div>`;
+                div.innerHTML+=`<div style="color: red;"> Metro</div>`;
                 //div.style.backgroundColor = 'lightblue';  // Apply specific styles based on the store
             } else if (store === 'foodbasics') {
                 //div.style.backgroundColor = 'lightgreen';
-                div.innerHTML+=`<div style="color: green;"> from Food Basics`;
+                div.innerHTML+=`<div style="color: green;"> Food Basics`;
 
             }
         });
