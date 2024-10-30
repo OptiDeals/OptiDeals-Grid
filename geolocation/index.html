@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deals with OptiDeals</title>
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS for Styling -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Search Section */
+        #search-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 15px;
+            width: 260px;
+            border-radius: 25px;
+            border: none;
+            font-size: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #333;
+            color: #fff;
+        }
+
+        input[type="text"]::placeholder {
+            color: #9e9e9e;
+        }
+
+        button {
+            background-color: #ffa726;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff9800;
+        }
+
+        /* Map Section */
+        #map {
+            height: 350px;
+            width: 45%;
+            margin: 35px auto;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-image: url('/mnt/data/image.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px 20px 50px 20px;
+            text-align: center;
+        }
+
+        /* Info Window Content */
+        .infowindow-content {
+            max-width: 250px;
+            color: #000;
+            text-align: center;
+        }
+
+        .infowindow-content img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <!-- Google Maps and Places API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXonhf9zYkKE5CCFBJtbjrgfg7eaUV6T0&libraries=places"></script>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero-section"></div>
+
+    <!-- Search Section -->
+    <div id="search-section">
+        <input type="text" id="locationInput" placeholder="Enter Postal Code or Street Address">
+        <button onclick="findStores()">Find Stores</button>
+        <button onclick="getGeolocation()">Use My Location</button>
+    </div>
+
+    <!-- Map Section -->
+    <div id="map"></div>
+
+    <!-- JavaScript -->
+    <script>
+        function findStores() {
+            var locationInput = document.getElementById('locationInput').value;
+            if (!locationInput) {
+                alert('Please enter a postal code or street address.');
+                return;
+            }
+
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ 'address': locationInput, 'region': 'CA' }, function(results, status) {
+                if (status === 'OK' && results.length > 0) {
+                    var pos = results[0].geometry.location;
+                    initMap(pos);
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+
+        function getGeolocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    initMap(pos);
+                }, function() {
+                    alert('Geolocation failed or was denied by the user.');
+                });
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        }
+
+        function initMap(pos) {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: pos,
+                zoom: 14
+            });
+
+            var service = new google.maps.places.PlacesService(map);
+            service.nearbySearch({
+                location: pos,
+                radius: 5000,
+                type: ['grocery_or_supermarket'],
+                keyword: ['Food Basics', 'Metro', 'No Frills', 'Walmart']
+            }, function(results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    for (var i = 0; i < results.length; i++) {
+                        createMarker(results[i]);
+                    }
+                } else {
+                    alert('Places search failed: ' + status);
+                }
+            });
+
+            function createMarker(place) {
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: place.geometry.location
+                });
+
+                var request = {
+                    placeId: place.place_id,
+                    fields: ['name', 'vicinity', 'formatted_phone_number', 'rating', 'opening_hours', 'photos']
+                };
+
+                service.getDetails(request, function(details, status) {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+                        google.maps.event.addListener(marker, 'click', function() {
+                            var infowindow = new google.maps.InfoWindow({
+                                content: getInfoContent(details)
+                            });
+                            infowindow.open(map, marker);
+                        });
+                    }
+                });
+            }
+
+            function getInfoContent(place) {
+                var name = place.name || 'No name available';
+                var address = place.vicinity || 'No address available';
+                var rating = place.rating ? `Rating: ${place.rating} stars` : 'No rating available';
+                var openingHours = place.opening_hours ? formatHours(place.opening_hours.weekday_text) : 'Hours not available';
+                var phone = place.formatted_phone_number || 'Phone number not available';
+                var photoUrl = place.photos && place.photos.length > 0 ? place.photos[0].getUrl({ maxWidth: 200, maxHeight: 200 }) : '';
+
+                var content = `<div class="infowindow-content">
+                                ${photoUrl ? `<img src="${photoUrl}" alt="${name} Image">` : ''}
+                                <h2>${name}</h2>
+                                <p>${address}</p>
+                                <p><strong>Contact:</strong> ${phone}</p>
+                                <p>${rating}</p>
+                                <p><strong>Hours:</strong><br>${openingHours}</p>
+                               </div>`;
+                return content;
+            }
+
+            function formatHours(hoursArray) {
+                return hoursArray.join('<br>');
+            }
+        }
+    </script>
+</body>
+</html>
