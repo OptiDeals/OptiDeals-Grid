@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>OptiDeals</title>
+  <script src='../sql-wasm.js'></script>
+  <script src="index.js"></script>
+  <link href="index.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="ingredient-container">
+    
+        <div class ="ingredient-header" id="header">
+            <div class="store-dropdown">
+                <button onclick="dropdownItem('storeDropdown')" class="store-dropbtn">Store ▼</button>
+                <div id="storeDropdown" class="store-dropdown-content">
+                  <a href="#" id="storeItem1" onclick="setStoreItem('storeItem1')">Metro<span class="highlight-button hide">&nbsp;✔</span></a>
+                  <a href="#" id="storeItem2" onclick="setStoreItem('storeItem2')">Food Basics<span class="highlight-button hide">&nbsp;✔</span></a>
+                  <a href="#" id="storeItem3" onclick="setStoreItem('storeItem3')">All<span class="highlight-button">&nbsp;✔</span></a>
+                </div>
+              </div>
+        </div>
+        
+        <div class ="ingredient-scroll-container" id = "horizontal-scroll-menu">
+
+        </div>
+        <div class ="choice-container">
+        <span>Select essentials to look for:</span>
+        <input type="checkbox" id ="chicken"><label for="chicken">Chicken</label>
+        <input type="checkbox" id ="veggies"><label for="veggies">Vegetables</label>
+        <input type="checkbox" id ="eggs"><label for="eggs">Eggs</label>
+        <input type="checkbox" id ="bread"><label for="bread">Bread</label>
+        <input type="checkbox" id ="milk"><label for="milk">Milk</label>
+        <input type="checkbox" id ="fish"><label for="fish">Fish</label>
+        <input type="checkbox" id ="tofu"><label for="tofu">Tofu</label>
+        <input type="checkbox" id ="beef"><label for="beef">Beef</label>
+
+
+        <button id="submitBtn" class="submitBtn">Submit</button>
+
+    </div>
+        <div class = "ingredient-footer" id = "footer"></div>
+
+    
+    </div>
+
+    
+</body>
+
+</html>
