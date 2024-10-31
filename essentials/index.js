@@ -16,7 +16,7 @@ async function loadGroceryStoreIngredients(){
     const latestDateStmt = db.prepare("SELECT MAX(date_scraped) as latest_date FROM grocery_ingredients");
     const latestDateRow = latestDateStmt.getAsObject();
     const latestDate = latestDateRow.latest_date;
-    //console.log(latestDate);
+    console.log(latestDateRow.latest_date);
     const stmt = db.prepare(`SELECT * FROM grocery_ingredients where date_scraped = '${latestDate}'`);
 
     while(stmt.step()){
@@ -99,7 +99,9 @@ console.log(essentialsFilter);
     AND (grocery_ingredient LIKE '%eggs%' --essentials
     OR grocery_ingredient LIKE '%bread%'
     OR grocery_ingredient LIKE '%milk%'
-    OR grocery_ingredient LIKE '%protein%'
+    OR grocery_ingredient LIKE '%tomato%'--veggies
+    OR grocery_ingredient LIKE '%onion%'
+    OR grocery_ingredient LIKE '%cucumber%'
     OR grocery_ingredient LIKE '%chicken%'
     OR grocery_ingredient LIKE '%beef%'
     OR grocery_ingredient LIKE '%fish%'
@@ -187,7 +189,9 @@ let essentialsFilter = selectedEssentials.map(essential => `grocery_ingredient L
                  AND (grocery_ingredient LIKE '%eggs%' --essentials
                  OR grocery_ingredient LIKE '%bread%'
                  OR grocery_ingredient LIKE '%milk%'
-                 OR grocery_ingredient LIKE '%protein%'
+                OR grocery_ingredient LIKE '%tomato%'--veggies
+                OR grocery_ingredient LIKE '%onion%'
+                OR grocery_ingredient LIKE '%cucumber%'
                  OR grocery_ingredient LIKE '%chicken%'
                  OR grocery_ingredient LIKE '%beef%'
                  OR grocery_ingredient LIKE '%fish%'
@@ -396,7 +400,9 @@ function Init() {
           
         }
         if (document.getElementById('veggies').checked) {
-          selectedEssentials.push('vegetables');
+            selectedEssentials.push('tomato');
+            selectedEssentials.push('onion');
+            selectedEssentials.push('cucumber');
         }
         if (document.getElementById('eggs').checked) {
           selectedEssentials.push('egg');
@@ -448,7 +454,10 @@ function checkEssentials(selectedEssentials=[]){
         selectedEssentials.push('chicken');       
       }
       if (document.getElementById('veggies').checked) {
-        selectedEssentials.push('vegetables');
+        selectedEssentials.push('tomato');
+        selectedEssentials.push('onion');
+        selectedEssentials.push('cucumber');
+
       }
       if (document.getElementById('eggs').checked) {
         selectedEssentials.push('egg');
