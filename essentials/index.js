@@ -102,6 +102,7 @@ console.log(essentialsFilter);
     OR grocery_ingredient LIKE '%tomato%'--veggies
     OR grocery_ingredient LIKE '%onion%'
     OR grocery_ingredient LIKE '%cucumber%'
+    OR grocery_ingredient LIKE '%vegetable%'
     OR grocery_ingredient LIKE '%chicken%'
     OR grocery_ingredient LIKE '%beef%'
     OR grocery_ingredient LIKE '%fish%'
@@ -192,6 +193,7 @@ let essentialsFilter = selectedEssentials.map(essential => `grocery_ingredient L
                 OR grocery_ingredient LIKE '%tomato%'--veggies
                 OR grocery_ingredient LIKE '%onion%'
                 OR grocery_ingredient LIKE '%cucumber%'
+                    OR grocery_ingredient LIKE '%vegetable%'
                  OR grocery_ingredient LIKE '%chicken%'
                  OR grocery_ingredient LIKE '%beef%'
                  OR grocery_ingredient LIKE '%fish%'
@@ -400,6 +402,7 @@ function Init() {
           
         }
         if (document.getElementById('veggies').checked) {
+            selectedEssentials.push('vegetable');
             selectedEssentials.push('tomato');
             selectedEssentials.push('onion');
             selectedEssentials.push('cucumber');
@@ -454,6 +457,7 @@ function checkEssentials(selectedEssentials=[]){
         selectedEssentials.push('chicken');       
       }
       if (document.getElementById('veggies').checked) {
+        selectedEssentials.push('vegetable');
         selectedEssentials.push('tomato');
         selectedEssentials.push('onion');
         selectedEssentials.push('cucumber');
