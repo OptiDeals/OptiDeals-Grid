@@ -88,6 +88,8 @@ body {
     font-weight: 500;
     text-decoration: none;
     text-align: center;
+    color: white;
+    background-color: #fa8305;
   }
   .store-dropdown-content{
     display: none;
