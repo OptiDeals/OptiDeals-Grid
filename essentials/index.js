@@ -137,6 +137,7 @@ console.log(essentialsFilter);
             
             if (store === 'metro') {
                 div.innerHTML+=`<div style="color: red;"> Metro</div>`;
+      
                 //div.style.backgroundColor = 'lightblue';  // Apply specific styles based on the store
             } else if (store === 'foodbasics') {
                 //div.style.backgroundColor = 'lightgreen';
@@ -213,17 +214,36 @@ let essentialsFilter = selectedEssentials.map(essential => `grocery_ingredient L
     while (recipes_stmt.step()) {
         const row = recipes_stmt.getAsObject();
         hasResults = true;
-        console.log(row.date_scraped);
+       // console.log(row.date_scraped);
 
-        ingredientsHtml +=`<div><strong>${row.grocery_ingredient}</strong><br>
+        ingredientsHtml += 
+        `<div class = "divContainerForAllStoreItems" data =${row.grocery_store}><strong>${row.grocery_ingredient}</strong><br>
                         ${row.grocery_amount} x
-                        $${row.grocery_cost}</div>`;        
-    
+                        $${row.grocery_cost} from </div>`;    
+                        console.log(row.grocery_store);
+                        
+                        
         }
         if (!hasResults) {
             ingredientsHtml += `<div><strong>No products found matching criteria</strong></div>`;
         }
         getHorizontalScrollMenu().innerHTML+=`${ingredientsHtml}`;
+
+       
+
+        document.querySelectorAll('.divContainerForAllStoreItems').forEach(div => {
+            const store = div.getAttribute('data');
+            
+            if (store === 'metro') {
+                div.innerHTML+=`<div style="color: red;">Metro</div>`;
+      
+                //div.style.backgroundColor = 'lightblue';  // Apply specific styles based on the store
+            } else if (store === 'foodbasics') {
+                //div.style.backgroundColor = 'lightgreen';
+                div.innerHTML+=`<div style="color: green;">Food Basics`;
+
+            }
+        });
 
         
 }
