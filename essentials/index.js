@@ -103,7 +103,7 @@ console.log(essentialsFilter);
     OR grocery_ingredient LIKE '%chicken%'
     OR grocery_ingredient LIKE '%beef%'
     OR grocery_ingredient LIKE '%fish%'
-    OR grocery_ingredient LIKE '%tofu%');`;
+    OR grocery_ingredient LIKE '%butter%');`;
                    
 
       }
@@ -191,7 +191,7 @@ let essentialsFilter = selectedEssentials.map(essential => `grocery_ingredient L
                  OR grocery_ingredient LIKE '%chicken%'
                  OR grocery_ingredient LIKE '%beef%'
                  OR grocery_ingredient LIKE '%fish%'
-                 OR grocery_ingredient LIKE '%tofu%');
+                 OR grocery_ingredient LIKE '%butter%');
                        `;
           }
           console.log(selectedEssentials.length);
@@ -413,8 +413,8 @@ function Init() {
           if (document.getElementById('fish').checked) {
             selectedEssentials.push('fish');
           }
-          if (document.getElementById('tofu').checked) {
-            selectedEssentials.push('tofu');
+          if (document.getElementById('butter').checked) {
+            selectedEssentials.push('butter');
           }
         //       // Check if 'storeItem3'-all stores is selected (i.e., has 'active' class)
         //checkForEssentials(selectedEssentials);
@@ -465,7 +465,7 @@ function checkEssentials(selectedEssentials=[]){
         if (document.getElementById('fish').checked) {
           selectedEssentials.push('fish');
         }
-        if (document.getElementById('tofu').checked) {
-          selectedEssentials.push('tofu');
+        if (document.getElementById('butter').checked) {
+          selectedEssentials.push('butter');
         }
 }
