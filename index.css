@@ -119,6 +119,18 @@ img{
   box-shadow: 0px 8px 20px #51515a21;
 }
 
+@media only screen and (max-width: 768px) {
+  .recipe-item-button{
+    margin: 15px;
+    width: 100%;
+    padding: 15px 15px;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px #51515a21;
+  }
+}
+
 .recipe-item-button:hover{
   background-color: #474747;
 }

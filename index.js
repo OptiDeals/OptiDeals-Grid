@@ -103,6 +103,7 @@ async function displayRecipes() {
                             </div>
                             <div class="recipe-img">
                             <img src="`+recipe_img+`" width="550" height ="500">
+                            <br>
                             </div>
                           </div>
                     </button>`
