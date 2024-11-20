@@ -85,13 +85,8 @@ console.log(essentialsFilter);
     AND (grocery_ingredient LIKE '%eggs%' --essentials
     OR grocery_ingredient LIKE '%bread%'
     OR grocery_ingredient LIKE '%milk%'
-    OR grocery_ingredient LIKE '%tomato%'--veggies
-    OR grocery_ingredient LIKE '%onion%'
-    OR grocery_ingredient LIKE '%cucumber%'
-    OR grocery_ingredient LIKE '%vegetable%'
-    OR grocery_ingredient LIKE '%chicken%'
-    OR grocery_ingredient LIKE '%beef%'
-    OR grocery_ingredient LIKE '%fish%'
+    OR grocery_ingredient LIKE '%cheese%'
+    OR grocery_ingredient LIKE '%oil%'
     OR grocery_ingredient LIKE '%butter%');`;
                    
 
@@ -177,13 +172,9 @@ let essentialsFilter = selectedEssentials.map(essential => `grocery_ingredient L
                  AND (grocery_ingredient LIKE '%eggs%' --essentials
                  OR grocery_ingredient LIKE '%bread%'
                  OR grocery_ingredient LIKE '%milk%'
-                OR grocery_ingredient LIKE '%tomato%'--veggies
-                OR grocery_ingredient LIKE '%onion%'
-                OR grocery_ingredient LIKE '%cucumber%'
-                    OR grocery_ingredient LIKE '%vegetable%'
-                 OR grocery_ingredient LIKE '%chicken%'
-                 OR grocery_ingredient LIKE '%beef%'
-                 OR grocery_ingredient LIKE '%fish%'
+                OR grocery_ingredient LIKE '%cheese%'
+                 OR grocery_ingredient LIKE '%milk%'
+                 OR grocery_ingredient LIKE '%oil%'
                  OR grocery_ingredient LIKE '%butter%');
                        `;
           }
@@ -339,16 +330,11 @@ function Init() {
     document.getElementById('submitBtn').addEventListener('click', function() {
         
       selectedEssentials.length = 0;
-        if (document.getElementById('chicken').checked) {
-          selectedEssentials.push('chicken');
+        if (document.getElementById('cheese').checked) {
+          selectedEssentials.push('cheese');
           
         }
-        if (document.getElementById('veggies').checked) {
-            selectedEssentials.push('vegetable');
-            selectedEssentials.push('tomato');
-            selectedEssentials.push('onion');
-            selectedEssentials.push('cucumber');
-        }
+       
         if (document.getElementById('eggs').checked) {
           selectedEssentials.push('egg');
         }
@@ -358,12 +344,10 @@ function Init() {
           if (document.getElementById('milk').checked) {
             selectedEssentials.push('milk');
           }
-          if (document.getElementById('beef').checked) {
-            selectedEssentials.push('beef');
+          if (document.getElementById('oil').checked) {
+            selectedEssentials.push('oil');
           }
-          if (document.getElementById('fish').checked) {
-            selectedEssentials.push('fish');
-          }
+      
           if (document.getElementById('butter').checked) {
             selectedEssentials.push('butter');
           }
@@ -395,16 +379,10 @@ function setStoreItem(itemId) {
     document.getElementById(itemId).classList.add('active');
 }
 function checkEssentials(selectedEssentials=[]){
-    if (document.getElementById('chicken').checked) {
-        selectedEssentials.push('chicken');       
+    if (document.getElementById('cheese').checked) {
+        selectedEssentials.push('cheese');       
       }
-      if (document.getElementById('veggies').checked) {
-        selectedEssentials.push('vegetable');
-        selectedEssentials.push('tomato');
-        selectedEssentials.push('onion');
-        selectedEssentials.push('cucumber');
-
-      }
+      
       if (document.getElementById('eggs').checked) {
         selectedEssentials.push('egg');
       }
@@ -414,11 +392,8 @@ function checkEssentials(selectedEssentials=[]){
         if (document.getElementById('milk').checked) {
           selectedEssentials.push('milk');
         }
-        if (document.getElementById('beef').checked) {
-          selectedEssentials.push('beef');
-        }
-        if (document.getElementById('fish').checked) {
-          selectedEssentials.push('fish');
+        if (document.getElementById('oil').checked) {
+          selectedEssentials.push('oil');
         }
         if (document.getElementById('butter').checked) {
           selectedEssentials.push('butter');

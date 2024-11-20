@@ -26,20 +26,31 @@
                 </div>
               </div>
         </div>
+        <div class="choice-header">
+          <div class="choice-dropdown">
+            <button onclick="dropdownItem('choiceDropdown')" class="choice-dropbtn">Filter by essentials ▼</button>
+            <div id = "choiceDropdown" class="choice-dropdown-content">
+              <input type="checkbox" id ="cheese"><label for="cheese">Cheese</label>
+              <input type="checkbox" id ="eggs"><label for="eggs">Eggs</label>
+              <input type="checkbox" id ="bread"><label for="bread">Bread</label>
+              <input type="checkbox" id ="milk"><label for="milk">Milk</label>
+              <input type="checkbox" id ="oil"><label for="oil">Oil</label>
+              <input type="checkbox" id ="butter"><label for="butter">Butter</label>
+            </div>
+          </div>
+        </div>
         
         <div class ="ingredient-scroll-container" id = "horizontal-scroll-menu">
 
         </div>
         <div class ="choice-container">
         <span>Select essentials to look for:</span>
-        <input type="checkbox" id ="chicken"><label for="chicken">Chicken</label>
-        <input type="checkbox" id ="veggies"><label for="veggies">Vegetables</label>
+        <input type="checkbox" id ="cheese"><label for="cheese">Cheese</label>
         <input type="checkbox" id ="eggs"><label for="eggs">Eggs</label>
         <input type="checkbox" id ="bread"><label for="bread">Bread</label>
         <input type="checkbox" id ="milk"><label for="milk">Milk</label>
-        <input type="checkbox" id ="fish"><label for="fish">Fish</label>
+        <input type="checkbox" id ="oil"><label for="oil">Oil</label>
         <input type="checkbox" id ="butter"><label for="butter">Butter</label>
-        <input type="checkbox" id ="beef"><label for="beef">Beef</label>
 
 
         <button id="submitBtn" class="submitBtn">Submit</button>
