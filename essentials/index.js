@@ -25,21 +25,7 @@ async function loadGroceryStoreIngredients(){
 
 }
 
-async function loadRecipes() {
-    const db = await fetchDatabase(sqlPromise);
-    const latestDateStmt = db.prepare("SELECT MAX(recipe_date) as latest_date FROM recipes");
-    const latestDateRow = latestDateStmt.getAsObject();
-    const latestDate = latestDateRow.latest_date;
-    //console.log(latestDate);
 
-    const stmt = db.prepare(`SELECT * FROM recipes WHERE recipe_date = '${latestDate}'`);
-
-
-    while (stmt.step()) {
-        const row = stmt.getAsObject();
-
-    }
-}
 window.addEventListener('load', Init)
 
 window.onscroll = function () { myFunction() };
@@ -249,70 +235,6 @@ let essentialsFilter = selectedEssentials.map(essential => `grocery_ingredient L
 }
 
 
-async function displayRecipes() {
-
-    getGrid().innerHTML = "";
-
-    const db = await fetchDatabase(sqlPromise);
-    const recipes_stmt = db.prepare("SELECT * FROM recipes");
-
-    //run through each recipe in the recipes table
-    while (recipes_stmt.step()) {
-        const row = recipes_stmt.getAsObject();
-        const ingredients_stmt = db.prepare("SELECT * FROM recipe_ingredients WHERE recipe_id = " + row.id);
-
-        if(currentStore == "all" || row.recipe_store == currentStore)
-        {
-            if(currentConstraint == 0 || row.recipe_total_cost < currentConstraint)
-                {
-                let ingredientsHTML = "";
-        
-                //run through each ingredient of current recipe
-                while (ingredients_stmt.step()) {
-        
-                    const ingredients_row = ingredients_stmt.getAsObject();
-                    //console.log(ingredients_row.recipe_ingredient_amount);
-                    //console.log("hi");
-                    ingredientsHTML += 
-                    `<li>${ingredients_row.recipe_ingredient}, 
-                        ${ingredients_row.recipe_ingredient_amount}, 
-                        $${ingredients_row.recipe_ingredient_cost}</li>`
-                }
-        
-                const blob = new Blob([row.recipe_image], { type: 'image/jpeg' });
-                recipe_img = URL.createObjectURL(blob);
-        
-                getGrid().innerHTML +=
-                    `<button onclick="viewRecipe('recipe')" class="recipe-item-button" type="button">
-                          <div class="recipe-item">
-                            <div class="recipe-info">
-                            `+row.recipe_title+`
-                            <br><br>
-                            <span>`+ row.recipe_description + `</span>
-                            <br><br>
-                            <span>Serves `+ row.recipe_serving_size + `<span>
-                            <br>
-                            <div class = "recipe-list">
-                                <ul>
-                                `+ingredientsHTML+`
-                                </ul> 
-                            </div>
-                            <br>
-                            <span>Total Cost: $`+ Math.round(row.recipe_total_cost * 100) / 100 + `</span>     
-                            </div>
-                            <div class="recipe-img">
-                            <img src="`+recipe_img+`" width="550" height ="500">
-                            </div>
-                          </div>
-                    </button>`
-            }else{
-                continue
-            }
-        }
-    }
-
-
-}
 
 
 //populate each card with recipe
@@ -381,7 +303,7 @@ function Init() {
     var selectedEssentials = [];
     //loadGroceryStoreIngredients();
     //displayIngredients();
-    displayAllIngredientsHorizontally(selectedEssentials);
+    displayIngredientsHorizontally(selectedEssentials);
 
     //loadRecipes();
     //displayRecipes();
@@ -410,7 +332,7 @@ function Init() {
         highlightButton('storeItem3');
         checkEssentials(selectedEssentials);
 
-        await(displayAllIngredientsHorizontally(selectedEssentials));
+        await(displayIngredientsHorizontally(selectedEssentials));
         selectedEssentials.length = 0;
 
     })

@@ -1,261 +1,271 @@
 body {
-    background-color: #0f0f0f;
-    color: white;
-  }
-  div.ingredient-scroll-container{
-    background-color: #333;
-    overflow-x: auto;
-    white-space: nowrap;
-    padding: 10px;
-    padding-top: 45px;
-    font-size: 16px;
-    font-family: "Cabin", sans-serif;
-    font-weight: 500;
-  }
-  div.ingredient-scroll-container div {
-    display: inline-block; /* Display each div in a horizontal row */
-    background-color: #444;
-    margin-right: 20px;
-    padding: 10px;
-    /* overflow-x: auto; */
-    max-width: 450px; /* Set width for each div to fit content */
-    color: white;
-    text-align:left;
-    border-radius: 5px;
-    /* padding: 10px;
-    width: 20px; */
-  }
-  
-  div.ingredient-scroll-menu div:hover {
-    background-color: #777;
-  }
-  /* .recipe-container {
-    width: 100%;
-    display: flex;
-    align-items: stretch;
-    flex-direction: column;
-    border-bottom: solid #fa5c05;
-  } */
-  .ingredient-container{
-    width: 100%;
-    display: flex;
-    align-items: stretch;
-    flex-direction: column;
-    border-bottom: solid #fa5c05;
-  }
-  .ingredient-header{
-    display: flex;
-    position: fixed;
-    background-color: #0f0f0f;
-    top: 0;
-    width: 100%;
-    flex:initial;
-    height: 3em;
-    text-align: center;
-    border-bottom: solid #fa5c05;
-    align-items: center;
-    gap: 50px;
-  }
-  /* .recipe-header{
-    display: flex;
-    position: fixed;
-    background-color: #0f0f0f;
-    top: 0;
-    width: 100%;
-    flex:initial;
-    height: 3em;
-    text-align: center;
-    border-bottom: solid #fa5c05;
-    align-items: center;
-    gap: 50px;
-  } */
-  
-  .recipe-info{
-    padding: 0px;
-  }
-  .choice-container{
-    font-size: 16px;
-    font-family: "Cabin", sans-serif;
-    font-weight: 500;
-    text-decoration: none;
-    text-align: center;
-    background-color: #333;
-    height: auto
-  }
-  .submitBtn{
-    border-radius: 90px;
-    font-size: 16px;
-    font-family: "Cabin", sans-serif;
-    font-weight: 500;
-    text-decoration: none;
-    text-align: center;
-    color: white;
-    background-color: #fa8305;
-  }
-  .store-dropdown-content{
-    display: none;
-    background-color: #0f0f0f;
-    position:absolute;
-    width: auto;
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.4);
-    z-index: 1;
-  }
-  
-  .store-dropdown-content a{
-    display: flex;
-    justify-content: center;
-    white-space: nowrap;
-    color: white;
-    font-size: 18px;
-    font-family: "Cabin", sans-serif;
-    font-weight: 500;
-    text-decoration: none;
-    text-align: center;
-    padding: 15px 20px;
-  }
-  
-  /* .price-dropdown-content{
-    display: none;
-    background-color: #0f0f0f;
-    position:absolute;
-    width: auto;
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.4);
-    z-index: 1;
-  }
-  
-  .price-dropdown-content a{
-    display: flex;
-    justify-content: center;
-    white-space: nowrap;
-    color: white;
-    font-size: 18px;
-    font-family: "Cabin", sans-serif;
-    font-weight: 500;
-    text-decoration: none;
-    text-align: center;
-    padding: 15px 20px;
-    display:block;
-  } */
-  
-  .show{
-    display: block;
-  }
-  .ingredient-grid{
-    display:flex;
-    padding-top: 50px;
-    flex: 1;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-  }
-  
-  /* .recipe-grid{
-    display:flex;
-    padding-top: 50px;
-    flex: 1;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-  } */
-  
-  /* .recipe-item{
-    color: white;
-    font-size: 18px;
-    font-family: "Cabin", sans-serif;
-    font-weight: 500;
-  } */
-  
-  /* .recipe-list{
+  background-color: #0f0f0f;
+  color: white;
+}
+div.ingredient-scroll-container{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #333;
+  overflow-x: auto;
+  overflow-y: scroll; /* Add vertical scroll */
+  height: 265px; /* Adjust the height as needed */
+  white-space: nowrap;
+  padding: 10px;
+  padding-top: 45px;
+  font-size: 16px;
+  font-family: "Cabin", sans-serif;
+  font-weight: 500;
+
+
+}
+div.ingredient-scroll-container div {
+  flex: 1 0 200px; /* Initial width of 200px, can grow or shrink */
+  margin: 5px;
+  max-height: 60px;
+  display: inline-block; /* Display each div in a horizontal row */
+  background-color: #444;
+  margin-right: 20px;
+  padding: 10px;
+  /* overflow-x: auto; */
+  max-width: 450px; /* Set width for each div to fit content */
+  color: white;
+  text-align:left;
+  border-radius: 5px;
+  /* padding: 10px;
+  width: 20px; */
+}
+
+div.ingredient-scroll-menu div:hover {
+  background-color: #777;
+}
+/* .recipe-container {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  border-bottom: solid #fa5c05;
+} */
+.ingredient-container{
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  border-bottom: solid #fa5c05;
+}
+.ingredient-header{
+  display: flex;
+  position: fixed;
+  background-color: #0f0f0f;
+  top: 0;
+  width: 100%;
+  flex:initial;
+  height: 3em;
+  text-align: center;
+  border-bottom: solid #fa5c05;
+  align-items: center;
+  gap: 50px;
+}
+/* .recipe-header{
+  display: flex;
+  position: fixed;
+  background-color: #0f0f0f;
+  top: 0;
+  width: 100%;
+  flex:initial;
+  height: 3em;
+  text-align: center;
+  border-bottom: solid #fa5c05;
+  align-items: center;
+  gap: 50px;
+} */
+
+.recipe-info{
+  padding: 0px;
+}
+.choice-container{
+  font-size: 16px;
+  font-family: "Cabin", sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  background-color: #333
+}
+.submitBtn{
+  border-radius: 90px;
+  font-size: 16px;
+  font-family: "Cabin", sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  background-color: #fa8305;
+}
+.store-dropdown-content{
+  display: none;
+  background-color: #0f0f0f;
+  position:absolute;
+  width: auto;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+.store-dropdown-content a{
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+  color: white;
+  font-size: 18px;
+  font-family: "Cabin", sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  padding: 15px 20px;
+}
+
+/* .price-dropdown-content{
+  display: none;
+  background-color: #0f0f0f;
+  position:absolute;
+  width: auto;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+.price-dropdown-content a{
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+  color: white;
+  font-size: 18px;
+  font-family: "Cabin", sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  padding: 15px 20px;
+  display:block;
+} */
+
+.show{
+  display: block;
+}
+.ingredient-grid{
+  display:flex;
+  padding-top: 50px;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+/* .recipe-grid{
+  display:flex;
+  padding-top: 50px;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+} */
+
+/* .recipe-item{
+  color: white;
+  font-size: 18px;
+  font-family: "Cabin", sans-serif;
+  font-weight: 500;
+} */
+
+/* .recipe-list{
+display: inline-block;
+} */
+
+img{
+  border:3px solid white;
+  border-radius: 20px;
+  width: 75%;
+  height: 75%;
+}
+
+/* .recipe-item ul{
+  text-align:left;
+} */
+
+/* .recipe-item-button{
+  margin: 15px;
+  width: 40%;
+  padding: 15px 15px;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 0px 8px 20px #51515a21;
+}
+
+.recipe-item-button:hover{
+  background-color: #474747;
+} */
+.ingredient-item-button{
+  margin: 15px;
+  width: 40%;
+  padding: 15px 15px;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 0px 8px 20px #51515a21;
+}
+.ingredient-item-button:hover{
+  background-color: #474747;
+}
+
+li{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.highlight-button{
+  color: orange;
+}
+
+.hide{
+  display:none;
+}
+
+
+[class$="-dropdown"]{
+  flex:initial;
+  position: relative;
   display: inline-block;
-  } */
+  padding-left: 25px;
+}
+
+[class$="-dropbtn"]{
+  border: none;
+  background-color: #0f0f0f;
+  color: white;
+  font-size: 18px;
+  font-family: "Cabin", sans-serif;
+  font-weight: 500;
+}
+
+[class$="-dropbtn"]:hover{
+  background-color: #474747;
+}
+
+[id$="Dropdown"] a:hover{
+  background-color: #474747;
+}
+
+ ::-webkit-scrollbar {
+  width: 8px;
   
-  img{
-    border:3px solid white;
-    border-radius: 20px;
-    width: 75%;
-    height: 75%;
-  }
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #51515a21;
+  border-radius: 10px;
   
-  /* .recipe-item ul{
-    text-align:left;
-  } */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #fa8305;
+  border-radius: 10px;
   
-  /* .recipe-item-button{
-    margin: 15px;
-    width: 40%;
-    padding: 15px 15px;
-    background-color: transparent;
-    border: 1px solid white;
-    border-radius: 10px;
-    box-shadow: 0px 8px 20px #51515a21;
-  }
-  
-  .recipe-item-button:hover{
-    background-color: #474747;
-  } */
-  .ingredient-item-button{
-    margin: 15px;
-    width: 40%;
-    padding: 15px 15px;
-    background-color: transparent;
-    border: 1px solid white;
-    border-radius: 10px;
-    box-shadow: 0px 8px 20px #51515a21;
-  }
-  .ingredient-item-button:hover{
-    background-color: #474747;
-  }
-  
-  li{
-    padding-top: 5px;
-    padding-bottom: 5px;
-  }
-  
-  .highlight-button{
-    color: orange;
-  }
-  
-  .hide{
-    display:none;
-  }
-  
-  
-  [class$="-dropdown"]{
-    flex:initial;
-    position: relative;
-    display: inline-block;
-    padding-left: 25px;
-  }
-  
-  [class$="-dropbtn"]{
-    border: none;
-    background-color: #0f0f0f;
-    color: white;
-    font-size: 18px;
-    font-family: "Cabin", sans-serif;
-    font-weight: 500;
-  }
-  
-  [class$="-dropbtn"]:hover{
-    background-color: #474747;
-  }
-  
-  [id$="Dropdown"] a:hover{
-    background-color: #474747;
-  }
-  
-   ::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #51515a21;
-    border-radius: 10px;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #fa8305;
-    border-radius: 10px;
-  }
-   
-  
+}
+ 
