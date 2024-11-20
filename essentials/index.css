@@ -79,7 +79,8 @@ body {
     font-weight: 500;
     text-decoration: none;
     text-align: center;
-    background-color: #333
+    background-color: #333;
+    height: auto
   }
   .submitBtn{
     border-radius: 90px;
