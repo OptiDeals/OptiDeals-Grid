@@ -25,25 +25,25 @@
                   <a href="#" id="storeItem3" onclick="setStoreItem('storeItem3')">All<span class="highlight-button">&nbsp;✔</span></a>
                 </div>
               </div>
+              <div class="choice-dropdown">
+                <button onclick="dropdownItem('choiceDropdown')" class="choice-dropbtn">Select Essentials ▼</button>
+                <div id="choiceDropdown" class="choice-dropdown-content">
+                    <a href="#" id="cheese-option" onclick="toggleCheckbox('cheese')">Cheese<span class="highlight-button hide">&nbsp;✔</span></a>
+                    <a href="#" id="egg-option" onclick="toggleCheckbox('egg')">Eggs<span class="highlight-button hide">&nbsp;✔</span></a>
+                    <a href="#" id="bread-option"onclick="toggleCheckbox('bread')">Bread<span class="highlight-button hide">&nbsp;✔</span></a>
+                    <a href="#" id="milk-option"onclick="toggleCheckbox('milk')">Milk<span class="highlight-button hide">&nbsp;✔</span></a>
+                    <a href="#" id="oil-option"onclick="toggleCheckbox('oil')">Oil<span class="highlight-button hide">&nbsp;✔</span></a>
+                    <a href="#" id="butter-option"onclick="toggleCheckbox('butter')">Butter<span class="highlight-button hide">&nbsp;✔</span></a>
+
+                  </div>
+            </div>
         </div>
    
         
         <div class ="ingredient-scroll-container" id = "horizontal-scroll-menu">
 
         </div>
-        <div class ="choice-container">
-        <span>Select essentials to look for:</span>
-        <input type="checkbox" id ="cheese"><label for="cheese">Cheese</label>
-        <input type="checkbox" id ="eggs"><label for="eggs">Eggs</label>
-        <input type="checkbox" id ="bread"><label for="bread">Bread</label>
-        <input type="checkbox" id ="milk"><label for="milk">Milk</label>
-        <input type="checkbox" id ="oil"><label for="oil">Oil</label>
-        <input type="checkbox" id ="butter"><label for="butter">Butter</label>
 
-
-        <button id="submitBtn" class="submitBtn">Submit</button>
-
-    </div>
         <div class = "ingredient-footer" id = "footer"></div>
 
     

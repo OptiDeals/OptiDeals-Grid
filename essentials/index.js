@@ -56,13 +56,20 @@ const getHorizontalScrollMenu = function(){
     return document.getElementById("horizontal-scroll-menu");
 }
 async function displayAllIngredientsHorizontally(selectedEssentials = []){
+    var chosenEssentials=[];
+    const options = document.querySelectorAll('.choice-dropdown-content a');
+    options.forEach(option => {
+      if (option.classList.contains('active')) {
+        chosenEssentials.push(option.id.replace('-option', ''));
+      }
+    });
     getHorizontalScrollMenu().innerHTML = "";
     //console.log(currentStore);
 
     const db = await fetchDatabase(sqlPromise);
  // Build a dynamic query based on selected essentials
- let essentialsFilter = selectedEssentials.map(essential => `grocery_ingredient LIKE '%${essential.toLowerCase()}%'`).join(' OR ');
-console.log(essentialsFilter);
+ let essentialsFilter = chosenEssentials.map(essential => `grocery_ingredient LIKE '%${essential.toLowerCase()}%'`).join(' OR ');
+console.log(chosenEssentials);
  var query = `
  SELECT *
  FROM grocery_ingredients
@@ -74,7 +81,8 @@ console.log(essentialsFilter);
  `;
 
     console.log(selectedEssentials.length);
-    if(selectedEssentials.length==0){//if no essentials are selected then defualt behaviour is to show all essentials from store
+    console.log(query);
+    if(chosenEssentials.length==0){//if no essentials are selected then defualt behaviour is to show all essentials from store
   
        query = `SELECT *
     FROM grocery_ingredients
@@ -91,6 +99,7 @@ console.log(essentialsFilter);
                    
 
       }
+      console.log(query);
     const recipes_stmt = db.prepare(query);
     //console.log(storeName);
     console.log(currentStore);
@@ -137,7 +146,7 @@ async function displayIngredientsHorizontally(selectedEssentials = []) {
     const db = await fetchDatabase(sqlPromise);
     console.log(selectedEssentials.length);
 
-    if(currentStore =="all"){
+    if(currentStore =="all" ){
         
 
         displayAllIngredientsHorizontally(selectedEssentials);
@@ -285,6 +294,7 @@ function dropdownItem(id) {
 
 }
 
+
 function Init() {
     //setting storeItem3(all stores) to active as that is the defualt choice in dropdown menu
     //document.getElementById("storeItem3").classList.add('active');
@@ -378,24 +388,50 @@ function setStoreItem(itemId) {
     // Add 'active' class to the clicked store item
     document.getElementById(itemId).classList.add('active');
 }
+function toggleCheckbox(id) {
+    
+    const aTag = document.getElementById(`${id}-option`);
+    const highlightButton = aTag.querySelector('.highlight-button');
+
+    aTag.classList.toggle('active');
+    highlightButton.classList.toggle('hide');
+
+  
+    // Clear the selectedEssentials array
+    selectedEssentials = [];
+  
+    // Loop through all dropdown options and check their active state
+    const options = document.querySelectorAll('.choice-dropdown-content a');
+    options.forEach(option => {
+      if (option.classList.contains('active')) {
+        selectedEssentials.push(option.id.replace('-option', ''));
+      }
+    });
+
+    //    if (option.id === 'all-option') { // Check for "all" option
+    //     selectedEssentials.push('milk'); // Add "all" to array if active
+    //     selectedEssentials.push('egg');
+    //     selectedEssentials.push('cheese');
+    //     selectedEssentials.push('oil');
+    //     selectedEssentials.push('butter');
+    //     selectedEssentials.push('bread');
+    //   }
+   
+  
+    // Update the ingredient display
+    //setStore()
+    displayIngredientsHorizontally(selectedEssentials);
+  }
+function setFilterItem(itemId){
+    if(document.getElementById(itemId).classList.contains('active')==0){
+        document.getElementById(itemId).classList.add('active');
+    }
+}
 function checkEssentials(selectedEssentials=[]){
-    if (document.getElementById('cheese').checked) {
-        selectedEssentials.push('cheese');       
+    const options = document.querySelectorAll('.choice-dropdown-content a');
+    options.forEach(option => {
+      if (option.classList.contains('active') && option.id !== 'all-option') {
+        selectedEssentials.push(option.id.replace('-option', ''));
       }
-      
-      if (document.getElementById('eggs').checked) {
-        selectedEssentials.push('egg');
-      }
-      if (document.getElementById('bread').checked) {
-          selectedEssentials.push('bread');
-        }
-        if (document.getElementById('milk').checked) {
-          selectedEssentials.push('milk');
-        }
-        if (document.getElementById('oil').checked) {
-          selectedEssentials.push('oil');
-        }
-        if (document.getElementById('butter').checked) {
-          selectedEssentials.push('butter');
-        }
+    });
 }
