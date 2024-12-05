@@ -68,7 +68,8 @@ async function displayAllIngredientsHorizontally(selectedEssentials = []){
 
     const db = await fetchDatabase(sqlPromise);
  // Build a dynamic query based on selected essentials
- let essentialsFilter = chosenEssentials.map(essential => `grocery_ingredient LIKE '%${essential.toLowerCase()}%'`).join(' OR ');
+
+ let essentialsFilter = chosenEssentials.map(essential => `grocery_ingredient LIKE '% ${essential.toLowerCase()},%' OR grocery_ingredient LIKE '% ${essential.toLowerCase()}'`).join(' OR ');
 console.log(chosenEssentials);
  var query = `
  SELECT *
@@ -91,11 +92,14 @@ console.log(chosenEssentials);
         FROM grocery_ingredients
     )
     AND (grocery_ingredient LIKE '%eggs%' --essentials
-    OR grocery_ingredient LIKE '%bread%'
-    OR grocery_ingredient LIKE '%milk%'
-    OR grocery_ingredient LIKE '%cheese%'
-    OR grocery_ingredient LIKE '%oil%'
-    OR grocery_ingredient LIKE '%butter%');`;
+    OR LOWER(grocery_ingredient) LIKE '% bread'
+    OR LOWER(grocery_ingredient) LIKE 'bread %'
+    OR LOWER(grocery_ingredient) LIKE '%bread,%'
+    OR grocery_ingredient LIKE '%milk,%'
+    OR grocery_ingredient LIKE '% cheese%'
+    OR grocery_ingredient LIKE '% oil %'
+    OR grocery_ingredient LIKE '% butter %'
+     OR grocery_ingredient LIKE '% butter');`;
                    
 
       }
@@ -156,7 +160,7 @@ async function displayIngredientsHorizontally(selectedEssentials = []) {
 
     
     // Build a dynamic query based on selected essentials
-let essentialsFilter = selectedEssentials.map(essential => `grocery_ingredient LIKE '%${essential.toLowerCase()}%'`).join(' OR ');
+let essentialsFilter = selectedEssentials.map(essential => `grocery_ingredient LIKE '% ${essential.toLowerCase()}' OR grocery_ingredient LIKE '${essential.toLowerCase()},%'`).join(' OR ');
 
               var query = `
               SELECT *
@@ -179,12 +183,13 @@ let essentialsFilter = selectedEssentials.map(essential => `grocery_ingredient L
                      FROM grocery_ingredients
                  )
                  AND (grocery_ingredient LIKE '%eggs%' --essentials
-                 OR grocery_ingredient LIKE '%bread%'
-                 OR grocery_ingredient LIKE '%milk%'
-                OR grocery_ingredient LIKE '%cheese%'
-                 OR grocery_ingredient LIKE '%milk%'
-                 OR grocery_ingredient LIKE '%oil%'
-                 OR grocery_ingredient LIKE '%butter%');
+                 OR LOWER(grocery_ingredient) LIKE '% bread'
+                 OR LOWER(grocery_ingredient) LIKE 'bread %'
+                 OR LOWER(grocery_ingredient) LIKE '%bread,%'
+                 OR grocery_ingredient LIKE '%milk,%'
+                OR grocery_ingredient LIKE '% cheese%'
+                 OR grocery_ingredient LIKE '% oil %'
+                 OR grocery_ingredient LIKE '% butter %');
                        `;
           }
           console.log(selectedEssentials.length);
