@@ -346,7 +346,7 @@ function Init() {
         }
        
         if (document.getElementById('eggs').checked) {
-          selectedEssentials.push('egg');
+          selectedEssentials.push('eggs');
         }
         if (document.getElementById('bread').checked) {
             selectedEssentials.push('bread');
